@@ -1,0 +1,537 @@
+#loader_wrapper {
+    position: absolute;
+    left: 50%;
+    top: 50px;
+    z-index: 1;
+    margin: 0 0 0 -75px;
+}
+
+#loader_text {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 1;
+    margin: 45px 0 0 -45px;
+    font-size: 1.5em;
+}
+
+#loader {
+    /*
+  position: absolute;
+  left: 50%;
+  top: 38%;
+  z-index: 1;
+  margin: -75px 0 0 -75px;
+*/
+    border: 16px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 16px solid #3498db;
+    width: 100px;
+    height: 100px;
+    -webkit-animation: spin 1s linear infinite;
+    animation: spin 1s linear infinite;
+}
+
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+
+/*Angularjs css*/
+
+.max {
+    max-width: 1079px;
+    min-width: 1079px
+}
+
+.wordWidth {
+    /*min-width: 100px */
+    font-weight: bold;
+}
+
+.rowFix {
+    display: inline-block;
+}
+
+table td,
+th {
+    padding: 10px;
+}
+
+.table_td {
+    text-align: right;
+}
+
+.table_quote td {
+    vertical-align: top;
+    width: 400px;
+}
+
+.table_quote_bold {
+    color: #0b5394;
+    font-weight: bold;
+}
+
+.table_quote_italicize {
+    font-style: italic;
+}
+
+
+/*for ngAnimate*/
+
+/*.testngAnimate {
+    transition: all ease-in-out 0.1s;
+    background-color: #00BDFD;
+    margin-left: -10px;
+    margin-right: -10px;
+    padding-left: 0;
+    border: solid 1px black;
+    height: 30px;
+    width: 368px;
+}*/
+.ng-hide {
+    width: 0;
+}
+
+
+/*Android*/
+
+.usaBar1A {
+    transition: all ease-in-out 0.1s;
+    background-color: #00BDFD;
+    /*width: 368px;*/
+    height: 30px;
+    margin-left: -10px;
+    margin-right: -10px;
+    padding-left: 0;
+    border: solid 1px black;
+}
+
+.chileBar1A {
+    background-color: #FFC0CB;
+    width: 331px;
+    height: 30px;
+    margin-left: -10px;
+    margin-right: -10px;
+    padding-left: 0;
+    border: solid 1px black;
+}
+
+.colombiaBar1A {
+    background-color: #FCF33A;
+    width: 212px;
+    height: 30px;
+    margin-left: -10px;
+    margin-right: -10px;
+    padding-left: 0;
+    border: solid 1px black;
+}
+
+.spainBar1A {
+    background-color: #FFC000;
+    width: 174px;
+    height: 30px;
+    margin-left: -10px;
+    margin-right: -10px;
+    padding-left: 0;
+    border: solid 1px black;
+}
+
+.mexicoBar1A {
+    background-color: #7DC24B;
+    width: 341px;
+    height: 30px;
+    margin-left: -10px;
+    margin-right: -10px;
+    padding-left: 0;
+    border: solid 1px;
+}
+
+.usaBar2A {
+    background-color: #00BDFD;
+    width: 215px;
+    height: 30px;
+    margin-left: -10px;
+    margin-right: -10px;
+    padding-left: 0;
+    border: solid 1px black;
+}
+
+.chileBar2A {
+    background-color: #FFC0CB;
+    width: 185px;
+    height: 30px;
+    margin-left: -10px;
+    margin-right: -10px;
+    padding-left: 0;
+    border: solid 1px black;
+}
+
+.colombiaBar2A {
+    background-color: #FCF33A;
+    width: 220px;
+    height: 30px;
+    margin-left: -10px;
+    margin-right: -10px;
+    padding-left: 0;
+    border: solid 1px black;
+}
+
+.spainBar2A {
+    background-color: #FFC000;
+    width: 205px;
+    height: 30px;
+    margin-left: -10px;
+    margin-right: -10px;
+    padding-left: 0;
+    border: solid 1px black;
+}
+
+.mexicoBar2A {
+    background-color: #7DC24B;
+    width: 210px;
+    height: 30px;
+    margin-left: -10px;
+    margin-right: -10px;
+    padding-left: 0;
+    border: solid 1px;
+}
+
+.usaBar3A {
+    background-color: #00BDFD;
+    width: 0px;
+    /*width: 240px;*/
+    /*max-width: 240px;*/
+    height: 30px;
+    margin-left: -10px;
+    margin-right: -10px;
+    padding-left: 0;
+    border: solid 1px black;
+}
+
+.chileBar3A {
+    background-color: #FFC0CB;
+    width: 0px;
+    height: 30px;
+    margin-left: -10px;
+    margin-right: -10px;
+    padding-left: 0;
+    border: solid 1px black;
+}
+
+.colombiaBar3A {
+    background-color: #FCF33A;
+    width: 0px;
+    height: 30px;
+    margin-left: -10px;
+    margin-right: -10px;
+    padding-left: 0;
+    border: solid 1px black;
+}
+
+.spainBar3A {
+    background-color: #FFC000;
+    width: 0px;
+    height: 30px;
+    margin-left: -10px;
+    margin-right: -10px;
+    padding-left: 0;
+    border: solid 1px black;
+}
+
+.mexicoBar3A {
+    background-color: #7DC24B;
+    width: 0px;
+    height: 30px;
+    margin-left: -10px;
+    margin-right: -10px;
+    padding-left: 0;
+    border: solid 1px;
+}
+
+
+/*iOS*/
+
+.usaBar1i {
+    background-color: #00BDFD;
+    width: 108px;
+    height: 30px;
+    margin-left: -10px;
+    margin-right: -10px;
+    padding-left: 0;
+    border: solid 1px black;
+}
+
+.chileBar1i {
+    background-color: #FFC0CB;
+    width: 212px;
+    height: 30px;
+    margin-left: -10px;
+    margin-right: -10px;
+    padding-left: 0;
+    border: solid 1px black;
+}
+
+.colombiaBar1i {
+    background-color: #FCF33A;
+    width: 233px;
+    height: 30px;
+    margin-left: -10px;
+    margin-right: -10px;
+    padding-left: 0;
+    border: solid 1px black;
+}
+
+.spainBar1i {
+    background-color: #FFC000;
+    width: 214px;
+    height: 30px;
+    margin-left: -10px;
+    margin-right: -10px;
+    padding-left: 0;
+    border: solid 1px black;
+}
+
+.mexicoBar1i {
+    background-color: #7DC24B;
+    width: 118px;
+    height: 30px;
+    margin-left: -10px;
+    margin-right: -10px;
+    padding-left: 0;
+    border: solid 1px;
+}
+
+.usaBar2i {
+    background-color: #00BDFD;
+    width: 160px;
+    height: 30px;
+    margin-left: -10px;
+    margin-right: -10px;
+    padding-left: 0;
+    border: solid 1px black;
+}
+
+.chileBar2i {
+    background-color: #FFC0CB;
+    width: 140px;
+    height: 30px;
+    margin-left: -10px;
+    margin-right: -10px;
+    padding-left: 0;
+    border: solid 1px black;
+}
+
+.colombiaBar2i {
+    background-color: #FCF33A;
+    width: 180px;
+    height: 30px;
+    margin-left: -10px;
+    margin-right: -10px;
+    padding-left: 0;
+    border: solid 1px black;
+}
+
+.spainBar2i {
+    background-color: #FFC000;
+    width: 150px;
+    height: 30px;
+    margin-left: -10px;
+    margin-right: -10px;
+    padding-left: 0;
+    border: solid 1px black;
+}
+
+.mexicoBar2i {
+    background-color: #7DC24B;
+    width: 215px;
+    height: 30px;
+    margin-left: -10px;
+    margin-right: -10px;
+    padding-left: 0;
+    border: solid 1px;
+}
+
+.usaBar3i {
+    background-color: #00BDFD;
+    width: 0px;
+    height: 30px;
+    margin-left: -10px;
+    margin-right: -10px;
+    padding-left: 0;
+    border: solid 1px black;
+}
+
+.chileBar3i {
+    background-color: #FFC0CB;
+    width: 0px;
+    height: 30px;
+    margin-left: -10px;
+    padding-left: 0;
+    border: solid 1px black;
+}
+
+.colombiaBar3i {
+    background-color: #FCF33A;
+    width: 0px;
+    height: 30px;
+    margin-left: -10px;
+    margin-right: -10px;
+    padding-left: 0;
+    border: solid 1px black;
+}
+
+.spainBar3i {
+    background-color: #FFC000;
+    width: 0px;
+    height: 30px;
+    margin-left: -10px;
+    margin-right: -10px;
+    padding-left: 0;
+    border: solid 1px black;
+}
+
+.mexicoBar3i {
+    background-color: #7DC24B;
+    width: 0px;
+    height: 30px;
+    margin-left: -10px;
+    margin-right: -10px;
+    padding-left: 0;
+    border: solid 1px;
+}
+
+.summaryTable {
+    width: 1100px;
+}
+
+.widthOfCountriesOnLeft {
+    width: 100px;
+}
+
+.summaryTableTD1 {
+    width: 400px;
+}
+
+.summaryTableTD2 {
+    width: 205px;
+}
+
+.summaryTableTD3 {
+    width: 228px;
+}
+
+.summaryTableTD4 {
+    width: 90px;
+}
+
+.frequencyTable {
+    width: 1062px;
+}
+
+.heightOfLine {
+    line-height: 2em;
+    margin-left: 5px;
+    /*margin-bottom: -5px;*/
+}
+
+.commentTable {
+    width: 2000px;
+}
+
+.commentWidth1 {
+    width: 50px;
+}
+
+
+/*.commentWidth2 {
+    width: 2000px;
+}*/
+
+.commentWidth3 {
+    width: 100px;
+}
+
+.country {
+    margin-left: 5px;
+    display: inline-flex;
+}
+
+.countryAndPic {
+    vertical-align: top;
+    /*text-align:center; */
+    padding: 15px 0 0 500px;
+    /*margin-left: 400px*/
+}
+
+.trForGraph {
+    height: 200px;
+}
+
+
+/*
+.overall_breakdown_bar:hover {
+    cursor: pointer;
+}
+
+.app_table_sorting img {
+    width: 8px;
+    height: 16px;
+}
+
+.percent_table_hover {
+    text-decoration: underline;
+    color: black;
+    text-align: center;
+}
+
+.percent_table_hover:hover {
+    cursor: pointer;
+}
+
+.table_sort_image:hover {
+    cursor: pointer;
+}
+
+.comments_star_num {
+    font-size: 2em;
+    width: 100px;
+    text-align: center;
+}
+
+.comments_star_num  img {
+    width: 40px;
+    height: 40px;
+    vertical-align: middle;
+}
+
+.word_list {
+    display: inline-block;
+    border: 1px solid white;
+    padding: 10px 0 10px 0;
+    margin: 10px;
+    width: 110px;
+}
+
+.word_list_active {
+    border: 1px solid darkblue;
+    border-radius: 5px;
+}
+
+.word_list:hover {
+    cursor: pointer;
+}*/

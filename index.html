@@ -1,0 +1,1194 @@
+<!DOCTYPE html>
+<html ng-app="walletApp">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>BBVA | Channel Ops Platform</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <meta name="viewport" content="width=device-width" />
+    <!-- Bootstrap 3.3.6 -->
+    <link rel="stylesheet" href="./lib/bootstrap.css">
+    <link rel="stylesheet" href="./css/walletReviews.css">
+</head>
+
+<body ng-controller="walletCtrl">
+    <h3 style="color:#0b5394;"><img style="vertical-align:top" src="data:image/png;base64,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
+"> <span style="vertical-align:top;">Wallet App Report for week of {{titleDateStart}} to {{titleDateEnd}}</span><span style="vertical-align:top; font-weight:bold" id="current_date_range"></span></h3>
+    <div style="color:#ff6600; font-weight:bold">Quotes of the week:</div>
+    <table class="table_quote  " style="width:1115px;">
+        <tr style="border-bottom:1px solid #f2f2f2;">
+        </tr>
+        <tr ng-if="USA1.length || USA2.length">
+            <td>
+                <div><strong>US</strong></div>
+                <div>
+                    <!-- <span class="table_quote_bold">Subject:</span> <span class="table_quote_italicize">""</span> -->
+                    <span class="table_quote_bold"> Review:</span> <span class="table_quote_italicize">"Doesn't show your transaction, and wouldn't allow you to transfer funds "</span>
+                    <!-- <span class="table_quote_bold"> Translated Subject:</span> <span class="table_quote_italicize">""</span> -->
+                    <!-- <span class="table_quote_bold"> Translated Review:</span> <span class="table_quote_italicize">""</span> -->
+                    <span style="color:#ff6600;"> 2 Stars</span>
+                </div>
+            </td>
+        </tr>
+        <tr ng-if="Chile1.length || Chile2.length">
+            <td>
+                <div><strong>Chile</strong></div>
+                <div>
+                    <span class="table_quote_bold">Subject:</span> <span class="table_quote_italicize">" Falta inicio de sesión con Touch ID"</span>
+                    <span class="table_quote_bold"> Review:</span> <span class="table_quote_italicize">"Es buena! Pero falta el inicio de sesión con Touch ID, por ahora solo le falta eso! "</span>
+                    <span class="table_quote_bold"> Translated Subject:</span> <span class="table_quote_italicize">"Lack login with Touch ID "</span>
+                    <span class="table_quote_bold"> Translated Review:</span> <span class="table_quote_italicize">"It's good! But the missing login with Touch ID, for now only missing that!"</span>
+                    <span style="color:#ff6600;"> 4 Stars</span>
+                </div>
+            </td>
+        </tr>
+        <tr ng-if="Colombia1.length || Colombia2.length">
+            <td>
+                <div><strong>Colombia</strong></div>
+                <div>
+                    <!-- <span class="table_quote_bold">Subject:</span> <span class="table_quote_italicize">""</span> -->
+                    <span class="table_quote_bold"> Review:</span> <span class="table_quote_italicize">"Se actualizo y no puedo entrar me sale ! Error del envio SMS del código de activación! Me podrían solucionar eso por favor "</span>
+                    <!-- <span class="table_quote_bold"> Translated Subject:</span> <span class="table_quote_italicize">""</span> -->
+                    <span class="table_quote_bold"> Translated Review:</span> <span class="table_quote_italicize">" I was updated and I can not get me out! Error sending SMS activation code! I could fix that please"</span>
+                    <span style="color:#ff6600;"> 1 Stars</span>
+                </div>
+            </td>
+        </tr>
+        <tr ng-if="Spain1.length || Spain2.length">
+            <td>
+                <div><strong>Spain</strong></div>
+                <div>
+                    <!-- <span class="table_quote_bold">Subject:</span> <span class="table_quote_italicize">""</span> -->
+                    <span class="table_quote_bold"> Review:</span> <span class="table_quote_italicize">"Funcionaba perfectamente. Pero desde la última actualización no la puedo recargar. No llega el sms del Banco con la clave."</span>
+                    <!-- <span class="table_quote_bold"> Translated Subject:</span> <span class="table_quote_italicize">""</span> -->
+                    <span class="table_quote_bold"> Translated Review:</span> <span class="table_quote_italicize">"It worked perfectly. But since the last update I can not recharge. SMS does not reach the Bank with the key."</span>
+                    <span style="color:#ff6600;"> 1 Stars</span>
+                </div>
+            </td>
+        </tr>
+        <tr ng-if="Mexico1.length || Mexico2.length">
+            <td>
+                <div><strong>Mexico</strong></div>
+                <div>
+                    <!-- <span class="table_quote_bold">Subject: </span><span class="table_quote_italicize">""</span> -->
+                    <span class="table_quote_bold">Review: </span><span class="table_quote_italicize">" Desde la actualización se cierra constantemente con un código de errer. Me piden capturar pantalla pero la aplicación no lo permite. No le veo el caso a seguirla teniendo ocupandome espacio "</span>
+                    <!-- <span class="table_quote_bold"> Translated Subject: </span><span class="table_quote_italicize">""</span> -->
+                    <span class="table_quote_bold"> Translated Review: </span> <span class="table_quote_italicize">"Since the update is constantly closed with a code errer. I ask capture screen but the application does not. I do not see the case follow minding taking space"</span>
+                    <span style="color:#ff6600;"> 1 Stars</span>
+                </div>
+            </td>
+        </tr>
+    </table>
+    <hr>
+    <!-- <h1><input type="checkbox" ng-model="myCheck"></h1> -->
+    <h3><u>Summary:</u></h3>
+    <div style="margin: 10px;">
+        <h3 style="margin:20px"><img style="vertical-align:top" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0ICQMB9xQAAAAlwSFlzAAAXEgAAFxIBZ5/SUgAAABl0RVh0U29mdHdhcmUATWljcm9zb2Z0IE9mZmljZX/tNXEAAAP1SURBVEjH7ZZfaFtVHMeDHcM5mXRTcA+iBKka19jk5ub+SdK0MsUHUR9WJooIIu5BfBLBB0GCbFbBSnWyXWeS23Nv0vSuTdqtmK13mEty7kmaP3Ndk80JXVcHohbRB1EQ5XjOvSs67ZY0C/igDz/u4dzD73N+53zP7/dzRCIRRzPTNEfXsN69tek67LhJ0rpvbcWno5VF2WzPZil3z+uSvvP2662Tcne/LOWcD3UMTO2j3M4HD+l3PRM1GBdAzIsA+UbGTPaIjJjX4pB5OGr0eMiaZ1v11zJYyrndiaJ/RS35f8vUg3i6HrKtEcKpioBTNf/PZENvdBQs5Vz7UhXu1+xSGE9UA1g1BayiPy1RFPGx8/149ssQls2+jKQ3v+em0Giu56mZcwJOzovfy3nPqwCy36TKgb9ASbRVEcuwbyRRZCdPXR7AUaM3c0Pg0exjmwD01Y9/EcYA+i9FDTenmOxZ7XTgqmhTFRHH8+weAL0jGXL8Uwt0I8xg2+B4ftdz6UUbQiLGEzXyLYn/OGpqFE4jV8i/zGIIxwrez8jz6moT7E2dujyI02dDlrPper/1Xc+o0NbGsxfCWEEslqDzjpbBw5rztqEhe6cAck+PV/lDwPR9sBFLIPYgQNzb+tLumy1xQtf264Ljxq69E6fZrxXkrUi6886oce8Latl14uP8/bMbsRh64NMjxn2JYc2xJQ7d+9OL/KoMexWi9lvWBQOTrdFjos+GKPhNxRTfO7k8iKfOhDZkx86HiQ7E1Tj0PJKc58hV9WOqFWAw3Lpg1eSLUwt2cpALvneIaA7Q8d+F1Myst46EiwCxTygmj8fLIh4n4gMwIF4DzKE1MIDMgRsFk3T6uGJyv1vgsgUW/gf/R8EKFEqdVLW8pup5O59fU9Vkd5Xs0gA+ecl+x2OmuL9tsCksEx+7k2XOetfpxSABc/51wTLkHp38PGgmSp65UZK5VBh4nxb69iLmv9WqzLZYvjeSaQSrCuLezV7o2dxSkUgU+djMufbAChJ+1BqB7W1VJ1Bg3ppbCeOZRj8+SmowLXm0JNLib1UkchoWhMxRo6WTXk324gAm6XdF051b2wJrVec2FbGRZClwmDiuUIhVjxH/i4J4mUT1IRk36DwVkIq4H8jcJ0drgYOkaRA60uyRI3x+LUJg+r/TrpROueAZnWnQriOIFcjBjneZKgq8RNuaK+BVoLt20Pkx6Ds8XbfBNA90HAyQsO9fAZOjfoW2sLZi/T8BndlhP0EmfpzM22Ch1nFwFLoHJ8/w+MRyGI/BvrSGh7rsvswzNLkg4LmvyHzBG+s42OqdDHcoVWafHM06Nl3dezO+ZNmzR6t2b2nV1x96ZB6LSlosBQAAAABJRU5ErkJggg==
+            "> <span style="vertical-align:top">Android</span></h3>
+        <table class="table-bordered table_td summaryTable">
+            <tr>
+                <th></th>
+                <!-- <th>Logins</th> -->
+                <th class="summaryTableTD1">Average Session
+                    <br> Duration</th>
+                <th class="summaryTableTD2">App Rating
+                    <br> (all time)</th>
+                <th class="summaryTableTD3">
+                    Average Review Rating
+                    <br> (for last week)
+                    <br>
+                </th>
+                <th class="summaryTableTD4 text-center">
+                    App Size
+                </th>
+                <!-- <th>App Logins /
+                    <br> Total Downloads</th> -->
+            </tr>
+            <tr>
+                <th class="widthOfCountriesOnLeft">US</th>
+                <!-- <td id="US_sessions_android"></td> -->
+                <td class="text-center">
+                    <div ng-if="USAndroidASDpx" class="usaBar1A" style="width: {{USAndroidASDpx}}px; max-width: {{maxWidthBarGraph}}px;" ng-hide="myCheck">
+                        <strong class="pull-left heightOfLine">{{USAndroidASDtime}}</strong>
+                    </div>
+                </td>
+                <td class="text-center">
+                    <div class="usaBar2A">
+                        <strong class="pull-left heightOfLine">4.3</strong>
+                    </div>
+                </td>
+                <!-- <td id="US_app_logins_per_downloads_android">0</td> -->
+                <td class="text-center">
+                    <div ng-if="sixWeekTrend.US1[5] === 0">
+                        <strong class="text-center">N/A</strong>
+                    </div>
+                    <div ng-if="sixWeekTrend.US1[5] !== 0" class="usaBar3A" style="width:{{((sixWeekTrend.US1[5] / 5) * 1)* width3rdBar}}px">
+                        <strong class="pull-left heightOfLine">{{sixWeekTrend.US1[5]}}</strong>
+                    </div>
+                </td>
+                <td class="text-center">
+                    <strong>10.79 MB</strong>
+                </td>
+            </tr>
+            <tr class="text-center">
+                <th>US App
+                    <br>Review Trends</th>
+                <td colspan="4">
+                    <hc-charts1 options="AndroidUS"></hc-charts1>
+                </td>
+            </tr>
+            <tr>
+                <th>Chile</th>
+                <!-- <td id="Chile_sessions_android"></td> -->
+                <td class="text-center">
+                    <div ng-if="ChileAndroidASDpx" class=" chileBar1A" style="width: {{ChileAndroidASDpx}}px; max-width: {{maxWidthBarGraph}}px;" ng-hide="myCheck">
+                        <strong class="pull-left heightOfLine">{{ChileAndroidASDtime}}</strong>
+                    </div>
+                </td>
+                <td class="text-center">
+                    <div class="chileBar2A">
+                        <strong class="pull-left heightOfLine">3.7</strong>
+                    </div>
+                </td>
+                <td class="text-center">
+                    <div ng-if="sixWeekTrend.Chile1[5] === 0">
+                        <strong class="text-center">N/A</strong>
+                    </div>
+                    <div ng-if="sixWeekTrend.Chile1[5] !== 0" class="chileBar3A" style="width:{{(sixWeekTrend.Chile1[5] / 5) * width3rdBar}}px">
+                        <strong class="pull-left heightOfLine">{{sixWeekTrend.Chile1[5]}}</strong>
+                    </div>
+                </td>
+                <td class="text-center">
+                    <strong>18.56 MB</strong>
+                </td>
+                <!-- <td id="Chile_app_logins_per_downloads_android">0</td> -->
+            </tr>
+            <tr class="text-center">
+                <th>Chile App
+                    <br>Review Trends</th>
+                <td colspan="4">
+                    <hc-charts1 options="AndriodChile"></hc-charts1>
+                </td>
+            </tr>
+            <tr>
+                <th>Colombia</th>
+                <!-- <td id="Colombia_sessions_android"></td> -->
+                <td class="text-center">
+                    <div ng-if="ColombiaAndroidASDpx" class=" colombiaBar1A" style="width: {{ColombiaAndroidASDpx}}px; max-width: {{maxWidthBarGraph}}px;" ng-hide="myCheck">
+                        <strong class="pull-left heightOfLine">{{ColombiaAndroidASDtime}}</strong>
+                    </div>
+                </td>
+                <td class="text-center">
+                    <div class="colombiaBar2A">
+                        <strong class="pull-left heightOfLine">4.4</strong>
+                    </div>
+                </td>
+                <td class="text-center">
+                    <div ng-if="sixWeekTrend.Colombia1[5] === 0">
+                        <strong class="text-center">N/A</strong>
+                    </div>
+                    <div ng-if="sixWeekTrend.Colombia1[5] !== 0" class="colombiaBar3A" style="width:{{(sixWeekTrend.Colombia1[5] / 5) * width3rdBar}}px">
+                        <strong class="pull-left heightOfLine">{{sixWeekTrend.Colombia1[5]}}</strong>
+                    </div>
+                </td>
+                <td class="text-center">
+                    <strong>12.93 MB</strong>
+                </td>
+                <!-- <td id="Colombia_app_logins_per_downloads_android">{{num}}</td> -->
+            </tr>
+            <tr class="text-center">
+                <th>Colombia App
+                    <br>Review Trends</th>
+                <td colspan="4">
+                    <hc-charts1 options="AndroidColombia"></hc-charts1>
+                </td>
+            </tr>
+            <tr>
+                <th>Spain</th>
+                <!-- <td id="Spain_sessions_android"></td> -->
+                <td class="text-center">
+                    <div ng-if="SpainAndroidASDpx" class=" spainBar1A" style="width: {{SpainAndroidASDpx}}px; max-width: {{maxWidthBarGraph}}px;" ng-hide="myCheck">
+                        <strong class="pull-left heightOfLine">{{SpainAndroidASDtime}}</strong>
+                    </div>
+                </td>
+                <td class="text-center">
+                    <div class="spainBar2A">
+                        <strong class="pull-left heightOfLine">4.1</strong>
+                    </div>
+                </td>
+                <td class="text-center">
+                    <div ng-if="sixWeekTrend.Spain1[5] === 0">
+                        <strong class="text-center">N/A</strong>
+                    </div>
+                    <div ng-if="sixWeekTrend.Spain1[5] !== 0" class="spainBar3A" style="width:{{(sixWeekTrend.Spain1[5] / 5) * width3rdBar}}px">
+                        <strong class="pull-left heightOfLine">{{sixWeekTrend.Spain1[5]}}</strong>
+                    </div>
+                </td>
+                <td class="text-center">
+                    <strong>22.55 MB</strong>
+                </td>
+                <!-- <td id="Spain_app_logins_per_downloads_android">0</td> -->
+            </tr>
+            <tr class="text-center">
+                <th>Spain App
+                    <br>Review Trends</th>
+                <td colspan="4">
+                    <hc-charts1 options="AndroidSpain"></hc-charts1>
+                </td>
+            </tr>
+            <tr>
+                <th>Mexico</th>
+                <!-- <td id="Mexico_sessions_android"></td> -->
+                <td class="text-center">
+                    <div ng-if="MexicoAndroidASDpx" class=" mexicoBar1A" style="width: {{MexicoAndroidASDpx}}px; max-width: {{maxWidthBarGraph}}px;" ng-hide="myCheck">
+                        <strong class="pull-left heightOfLine">{{MexicoAndroidASDtime}}</strong>
+                    </div>
+                </td>
+                <td class="text-center">
+                    <div class="mexicoBar2A">
+                        <strong class="pull-left heightOfLine">4.2</strong>
+                    </div>
+                </td>
+                <td class="text-center">
+                    <div ng-if="sixWeekTrend.Mexico1[5] === 0">
+                        <strong class="text-center">N/A</strong>
+                    </div>
+                    <div ng-if="sixWeekTrend.Mexico1[5] !== 0" class="mexicoBar3A" style="width:{{(sixWeekTrend.Mexico1[5] / 5) * width3rdBar}}px">
+                        <strong class="pull-left heightOfLine">{{sixWeekTrend.Mexico1[5]}}</strong>
+                    </div>
+                </td>
+                <td class="text-center">
+                    <strong>44.49 MB</strong>
+                </td>
+                <!-- <td id="Mexico_app_logins_per_downloads_android">0</td> -->
+            </tr>
+            <tr class="text-center">
+                <th>Mexico App
+                    <br>Review Trends</th>
+                <td colspan="4">
+                    <hc-charts1 options="AndroidMexico"></hc-charts1>
+                </td>
+            </tr>
+        </table>
+    </div>
+    </section>
+    </div>
+    <hr>
+    <div style="margin: 10px;">
+        <h3 style="margin:20px"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0ICQMB9xQAAAAlwSFlzAAAXEgAAFxIBZ5/SUgAAABl0RVh0U29mdHdhcmUATWljcm9zb2Z0IE9mZmljZX/tNXEAAAMWSURBVEjHxZfrThNREIDxBcCnQMV3ULy8hrDdbrfXvR5g1YpSjREKxISEYExQjNFg/IH0IreY1Avx8gCCfzFYEwN/uKTFlnHmpBAqpZx1IZ5ksunZznwzc+acM9uQSCQa/occ+MJxnJMop1g83sIYcyeoQ7ooTcJgWVYuaxqbNAz7p6ZbJd2wt/HpSio6JQ1tmJb9ql2WL9UFS7ISMa0O6HKuAz11g6HY/yYmg722JEkN1wQrSqjVsjuBBL09UiGbBJdV9XwVGMcJTbNek3dHDd0RbtuwMsTaBatYSNGYsUJeuTUYUCMg+9VD/2damEnN/KWqauMuWGfsdEwzy7Q2bqB+JQgDg/dhZnYObNYF6PyB/63Y/o1V37wLZsw5u1MUbqCjo4+BxtraGkSi+iFgRs9t5jhn9oBZS2Ub1IWR8VA4BsFQlK9ZqVTi4LEnT6GtXQbM2oG6BlY5zypmVxhMkdA6Ujq7u3tACYTgXm8S8vk8jL94ySs2fuMmd0oNRmpmzjWYoBThZCoNK6ursLW1BcvLPyCXewupVAY+ff4C6+vrUCwWYXHxG/QlB9ABzTvYj9Hlcu9AdCwtfYdQRNuXdldgSluyf1AYSpEnbt/lGfIUseQLQDqTFQbPzb2BK20+72vskwOu0vzs+Th31nNVSwienp4VBr//MM8j9gyW/XhIPBoTBlNlJ5ODfOv9bcsVOIzVefVaHAqFgjC8UCjC8PAInuFhb9uJ1plS6Gb09vXzHeEJTKcRRb25uSkEzWansMAUsTV26lwSNOfDNRt58LAKUC6XYWNjo2ru68ICBNHRWpdFxXb1JUFeVPqrurfR0NAwPyJT6Qzc6rkDrMPhc/PzH2FqeoYbpwwJX4vYCDSJNAJUMFSxJHQ60W1FF8bOHP3W6zYCRnUjQO1ILGZkj7310azMvmZPkpRW8upYmz1ZPVezvcUXob0tKVUirY3B21wxMSotsbG/vQ3WbeglRblo2p0TqJynYkAp0zZwI6RDurph5U2zcwIDuiD8CaOqTiNj8WYqf6p6N0I6pEs2XH87Hbf8AYjtGrbXteX6AAAAAElFTkSuQmCC
+            "> <span style="vertical-align:top">iOS</span></h3>
+        <table class="table-bordered table_td summaryTable">
+            <tr>
+                <th></th>
+                <!-- <th>Logins</th> -->
+                <th class="summaryTableTD1">Average Session
+                    <br> Duration</th>
+                <th class="summaryTableTD2">App Rating
+                    <br> (all time)</th>
+                <th class="summaryTableTD3">
+                    Average Review Rating
+                    <br> (for last week)
+                    <br>
+                </th>
+                <th class="summaryTableTD4 text-center">
+                    App Size
+                </th>
+                <!-- <th>App Logins /
+                    <br> Total Downloads</th> -->
+            </tr>
+            <tr>
+                <th class="widthOfCountriesOnLeft">US</th>
+                <!-- <td id="US_sessions_android"></td> -->
+                <td class="text-center">
+                    <div ng-if="USiOSASDpx" class=" usaBar1i" style="width: {{USiOSASDpx}}px; max-width: {{maxWidthBarGraph}}px;" ng-hide="myCheck">
+                        <strong class="pull-left heightOfLine">{{USiOSASDtime}}</strong>
+                    </div>
+                </td>
+                <td class="text-center">
+                    <div class="usaBar2i">
+                        <strong class="pull-left heightOfLine">3.2</strong>
+                    </div>
+                </td>
+                <!-- <td id="US_app_logins_per_downloads_android">0</td> -->
+                <td class="text-center">
+                    <div ng-if="sixWeekTrend.US2[5] === 0">
+                        <strong class="text-center">N/A</strong>
+                    </div>
+                    <div ng-if="sixWeekTrend.US2[5] !== 0" class="usaBar3i" style="width:{{(sixWeekTrend.US2[5] / 5) * width3rdBar}}px">
+                        <strong class="pull-left heightOfLine">{{sixWeekTrend.US2[5]}}</strong>
+                    </div>
+                </td>
+                <td class="text-center">
+                    <strong>20.1 MB</strong>
+                </td>
+            </tr>
+            <tr class="text-center">
+                <th>US App
+                    <br>Review Trends</th>
+                <td colspan="4">
+                    <hc-charts1 options="iOSUS"></hc-charts1>
+                </td>
+            </tr>
+            <tr>
+                <th>Chile</th>
+                <!-- <td id="Chile_sessions_android"></td> -->
+                <td class="text-center">
+                    <div ng-if="ChileiOSASDpx" class=" chileBar1i" style="width: {{ChileiOSASDpx}}px; max-width: {{maxWidthBarGraph}}px;" ng-hide="myCheck">
+                        <strong class="pull-left heightOfLine">{{ChileiOSASDtime}}</strong>
+                    </div>
+                </td>
+                <td class="text-center">
+                    <div class="chileBar2i">
+                        <strong class="pull-left heightOfLine">2.8</strong>
+                    </div>
+                </td>
+                <td class="text-center">
+                    <div ng-if="sixWeekTrend.Chile2[5] === 0">
+                        <strong class="text-center">N/A</strong>
+                    </div>
+                    <div ng-if="sixWeekTrend.Chile2[5] !== 0" class="chileBar3i" style="width:{{(sixWeekTrend.Chile2[5] / 5) * width3rdBar}}px">
+                        <strong class="pull-left heightOfLine">{{sixWeekTrend.Chile2[5]}}</strong>
+                    </div>
+                </td>
+                <td class="text-center">
+                    <strong>16.9 MB</strong>
+                </td>
+                <!-- <td id="Chile_app_logins_per_downloads_android">0</td> -->
+            </tr>
+            <tr class="text-center">
+                <th>Chile App
+                    <br>Review Trends</th>
+                <td colspan="4">
+                    <hc-charts1 options="iOSChile"></hc-charts1>
+                </td>
+            </tr>
+            <tr>
+                <th>Colombia</th>
+                <!-- <td id="Colombia_sessions_android"></td> -->
+                <td class="text-center">
+                    <div ng-if="ColombiaiOSASDpx" class=" colombiaBar1i" style="width: {{ColombiaiOSASDpx}}px; max-width: {{maxWidthBarGraph}}px;" ng-hide="myCheck">
+                        <strong class="pull-left heightOfLine">{{ColombiaiOSASDtime}}</strong>
+                    </div>
+                </td>
+                <td class="text-center">
+                    <div class="colombiaBar2i">
+                        <strong class="pull-left heightOfLine">3.6</strong>
+                    </div>
+                </td>
+                <td class="text-center">
+                    <!-- <div class="colombiaBar3i"> -->
+                    <div ng-if="sixWeekTrend.Colombia2[5] === 0">
+                        <strong class="text-center">N/A</strong>
+                    </div>
+                    <div ng-if="sixWeekTrend.Colombia2[5] !== 0" class="colombiaBar3i" style="width:{{(sixWeekTrend.Colombia2[5] / 5) * width3rdBar}}px">
+                        <strong class="pull-left heightOfLine">{{sixWeekTrend.Colombia2[5]}}</strong>
+                    </div>
+                </td>
+                <td class="text-center">
+                    <strong>17.3 MB</strong>
+                </td>
+                <!-- <td id="Colombia_app_logins_per_downloads_android">{{num}}</td> -->
+            </tr>
+            <tr class="text-center">
+                <th>Colombia App
+                    <br>Review Trends</th>
+                <td colspan="4">
+                    <hc-charts1 options="iOSColombia"></hc-charts1>
+                </td>
+            </tr>
+            <tr>
+                <th>Spain</th>
+                <!-- <td id="Spain_sessions_android"></td> -->
+                <td class="text-center">
+                    <div ng-if="SpainiOSASDpx" class=" spainBar1i" style="width: {{SpainiOSASDpx}}px; max-width: {{maxWidthBarGraph}}px;" ng-hide="myCheck">
+                        <strong class="pull-left heightOfLine">{{SpainiOSASDtime}}</strong>
+                    </div>
+                </td>
+                <td class="text-center">
+                    <div class="spainBar2i">
+                        <strong class="pull-left heightOfLine">3</strong>
+                    </div>
+                </td>
+                <td class="text-center">
+                    <div ng-if="sixWeekTrend.Spain2[5] === 0">
+                        <strong class="text-center">N/A</strong>
+                    </div>
+                    <div ng-if="sixWeekTrend.Spain2[5] !== 0" class="spainBar3i" style="width:{{(sixWeekTrend.Spain2[5] / 5) * width3rdBar}}px">
+                        <strong class="pull-left heightOfLine">{{sixWeekTrend.Spain2[5]}}</strong>
+                    </div>
+                </td>
+                <td class="text-center">
+                    <strong>19.9 MB</strong>
+                </td>
+                <!-- <td id="Spain_app_logins_per_downloads_android">0</td> -->
+            </tr>
+            <tr class="text-center">
+                <th>Spain App
+                    <br>Review Trends</th>
+                <td colspan="4">
+                    <hc-charts1 options="iOSSpain"></hc-charts1>
+                </td>
+            </tr>
+            <tr>
+                <th>Mexico</th>
+                <!-- <td id="Mexico_sessions_android"></td> -->
+                <td class="text-center">
+                    <div ng-if="MexicoiOSASDpx" class=" mexicoBar1i" style="width: {{MexicoiOSASDpx}}px; max-width: {{maxWidthBarGraph}}px;" ng-hide="myCheck">
+                        <strong class="pull-left heightOfLine">{{MexicoiOSASDtime}}</strong>
+                    </div>
+                </td>
+                <td class="text-center">
+                    <div class="mexicoBar2i">
+                        <strong class="pull-left heightOfLine">4.3</strong>
+                    </div>
+                </td>
+                <td class="text-center">
+                    <div ng-if="sixWeekTrend.Mexico2[5] === 0">
+                        <strong class="text-center">N/A</strong>
+                    </div>
+                    <div ng-if="sixWeekTrend.Mexico2[5] !== 0" class="mexicoBar3i" style="width:{{(sixWeekTrend.Mexico2[5] / 5) * width3rdBar}}px">
+                        <strong class="pull-left heightOfLine">{{sixWeekTrend.Mexico2[5]}}</strong>
+                    </div>
+                </td>
+                <td class="text-center">
+                    <strong>75.7 MB</strong>
+                </td>
+                <!-- <td id="Mexico_app_logins_per_downloads_android">0</td> -->
+            </tr>
+            <tr class="text-center">
+                <th>Mexico App
+                    <br>Review Trends</th>
+                <td colspan="4">
+                    <hc-charts1 options="iOSMexico"></hc-charts1>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="container pull-left" style="height: 260px; padding-top: 30px">
+        <div class="row">
+            <h3 style="width:200px;"><u>Word Frequency:</u></h3>
+            <!-- <h3 class="col-xs-7 heightOfPeriod pull-left">{{timePeriod}}</h3> -->
+        </div>
+        <div class="" style=" padding-left: 30px;">
+            <div class="row">
+                <div class="btn-group col-xs-5">
+                    <div style="padding-top: 0px;">This table shows the number of comments with the associated word</div>
+                    <!-- <span><i>Number of reviews: <strong>{{mobileData.length}}</strong></i></span> -->
+                </div>
+                <!--  <form class="form-inline formPosModal col-xs-offset-9">
+                        <input ng-model="query" type="text" placeholder="Look for..." autofocus>
+                    </form> -->
+            </div>
+            <div class="tab-content row" style="display: inline-block;">
+                <div class="table-responsive ">
+                    <table class="table table-fixed table-hover table-bordered frequencyTable" rules="rows" style="border: 2px solid #e6e6e6; border-radius:4px;" data-search="true">
+                        <thead>
+                            <tr class="fixed_th">
+                                <th data-sortable="true" data-align="center" data-sort-name="_date_data">
+                                    <div class="fixed_th">
+                                        <a href="#" ng-click="orderByField='firstName'; reverseSort = !reverseSort" class="pull-left">
+                                            Week of:
+                                                <span ng-show="orderByField == 'firstName'">
+                                                <span ng-show="!reverseSort">^</span>
+                                                <span ng-show="reverseSort">v</span>
+                                            </span>
+                                        </a>
+                                    </div>
+                                </th>
+                                <th data-sortable="true" data-align="center" class="text-center">
+                                    <div class="">
+                                        <a href="#" ng-click="orderByField='NegativeComments'; reverseSort = !reverseSort" class="pull-left">
+                                            Total Comments <br>
+                                                <span ng-show="orderByField == 'NegativeComments'">
+                                                <span ng-show="!reverseSort">^</span>
+                                                <span ng-show="reverseSort">v</span>
+                                            </span>
+                                        </a>
+                                    </div>
+                                </th>
+                                <th data-sortable="true" data-align="center" class="text-center">
+                                    <div class="">
+                                        <a href="#" ng-click="orderByField='NegativeComments'; reverseSort = !reverseSort" class="pull-left">
+                                            Total <br> word hits
+                                                <span ng-show="orderByField == 'NegativeComments'">
+                                                <span ng-show="!reverseSort">^</span>
+                                                <span ng-show="reverseSort">v</span>
+                                            </span>
+                                        </a>
+                                    </div>
+                                </th>
+                                <!--  <th data-sortable="true" data-align="center">
+                                        <div class="">
+                                            <a href="#" ng-click="orderByField='Cant'; reverseSort = !reverseSort">
+                                            Fraud
+                                                <span ng-show="orderByField == 'Cant'">
+                                                <span ng-show="!reverseSort">^</span>
+                                                <span ng-show="reverseSort">v</span>
+                                            </span>
+                                        </a>
+                                        </div>
+                                    </th>
+                                    <th data-sortable="true" data-align="center">
+                                        <div class="">
+                                            <a href="#" ng-click="orderByField='Cant'; reverseSort = !reverseSort">
+                                            Authenticate
+                                                <span ng-show="orderByField == 'Cant'">
+                                                <span ng-show="!reverseSort">^</span>
+                                                <span ng-show="reverseSort">v</span>
+                                            </span>
+                                        </a>
+                                        </div>
+                                    </th>
+                                    <th data-sortable="true" data-align="center">
+                                        <div class="">
+                                            <a href="#" ng-click="orderByField='Cant'; reverseSort = !reverseSort">
+                                            Stolen
+                                                <span ng-show="orderByField == 'Cant'">
+                                                <span ng-show="!reverseSort">^</span>
+                                                <span ng-show="reverseSort">v</span>
+                                            </span>
+                                        </a>
+                                        </div>
+                                    </th>
+                                    <th data-sortable="true" data-align="center">
+                                        <div class="">
+                                            <a href="#" ng-click="orderByField='Cant'; reverseSort = !reverseSort">
+                                            Security
+                                                <span ng-show="orderByField == 'Cant'">
+                                                <span ng-show="!reverseSort">^</span>
+                                                <span ng-show="reverseSort">v</span>
+                                            </span>
+                                        </a>
+                                        </div>
+                                    </th>
+                                    <th data-sortable="true" data-align="center">
+                                        <div class="">
+                                            <a href="#" ng-click="orderByField='Cant'; reverseSort = !reverseSort">
+                                            Credential
+                                                <span ng-show="orderByField == 'Cant'">
+                                                <span ng-show="!reverseSort">^</span>
+                                                <span ng-show="reverseSort">v</span>
+                                            </span>
+                                        </a>
+                                        </div>
+                                    </th>
+                                    <th data-sortable="true" data-align="center">
+                                        <div class="">
+                                            <a href="#" ng-click="orderByField='Cant'; reverseSort = !reverseSort">
+                                            Safe
+                                                <span ng-show="orderByField == 'Cant'">
+                                                <span ng-show="!reverseSort">^</span>
+                                                <span ng-show="reverseSort">v</span>
+                                            </span>
+                                        </a>
+                                        </div>
+                                    </th>
+                                    <th data-sortable="true" data-align="center">
+                                        <div class="">
+                                            <a href="#" ng-click="orderByField='Cant'; reverseSort = !reverseSort">
+                                            Hack(ed)
+                                                <span ng-show="orderByField == 'Cant'">
+                                                <span ng-show="!reverseSort">^</span>
+                                                <span ng-show="reverseSort">v</span>
+                                            </span>
+                                        </a>
+                                        </div>
+                                    </th> -->
+                                <!--      <th data-sortable="true" data-align="center">
+                                    <div class="">
+                                        <a href="#" ng-click="orderByField='Cant'; reverseSort = !reverseSort">
+                                            Credential
+                                                <span ng-show="orderByField == 'Cant'">
+                                                <span ng-show="!reverseSort">^</span>
+                                                <span ng-show="reverseSort">v</span>
+                                            </span>
+                                        </a>
+                                    </div>
+                                </th> -->
+                                <th data-sortable="true" data-align="center">
+                                    <div class="">
+                                        <a href="#" ng-click="orderByField='Cant'; reverseSort = !reverseSort">
+                                            Can't
+                                                <span ng-show="orderByField == 'Cant'">
+                                                <span ng-show="!reverseSort">^</span>
+                                                <span ng-show="reverseSort">v</span>
+                                            </span>
+                                        </a>
+                                    </div>
+                                </th>
+                                <th data-sortable="true" data-align="center">
+                                    <div class="">
+                                        <a href="#" ng-click="orderByField='Wont'; reverseSort = !reverseSort">
+                                            Won't
+                                            <span ng-show="orderByField == 'Wont'">
+                                                <span ng-show="!reverseSort">^</span>
+                                                <span ng-show="reverseSort">v</span>
+                                            </span>
+                                        </a>
+                                    </div>
+                                </th>
+                                <th data-sortable="true" data-align="center">
+                                    <div class="">
+                                        <a href="#" ng-click="orderByField='Log in'; reverseSort = !reverseSort">
+                                            Log in
+                                            <span ng-show="orderByField == 'Log in'">
+                                                <span ng-show="!reverseSort">^</span>
+                                                <span ng-show="reverseSort">v</span>
+                                            </span>
+                                        </a>
+                                    </div>
+                                </th>
+                                <th data-sortable="true" data-align="center">
+                                    <div class="">
+                                        <a href="#" ng-click="orderByField='Crash(es)'; reverseSort = !reverseSort">
+                                            Crash(es)
+                                            <span ng-show="orderByField == 'Crash(es)'">
+                                                <span ng-show="!reverseSort">^</span>
+                                                <span ng-show="reverseSort">v</span>
+                                            </span>
+                                        </a>
+                                    </div>
+                                </th>
+                                <th data-sortable="true" data-align="center">
+                                    <div class="">
+                                        <a href="#" ng-click="orderByField='Depoist'; reverseSort = !reverseSort">
+                                            Deposit
+                                            <span ng-show="orderByField == 'Depoist'">
+                                                <span ng-show="!reverseSort">^</span>
+                                                <span ng-show="reverseSort">v</span>
+                                            </span>
+                                        </a>
+                                    </div>
+                                </th>
+                                <th data-sortable="true" data-align="center">
+                                    <div class="">
+                                        <a href="#" ng-click="orderByField='Pay'; reverseSort = !reverseSort">
+                                            Pay
+                                            <span ng-show="orderByField == 'Pay'">
+                                                <span ng-show="!reverseSort">^</span>
+                                                <span ng-show="reverseSort">v</span>
+                                            </span>
+                                        </a>
+                                    </div>
+                                </th>
+                                <th data-sortable="true" data-align="center">
+                                    <div class="">
+                                        <a href="#" ng-click="orderByField='Update'; reverseSort = !reverseSort">
+                                            Update
+                                            <span ng-show="orderByField == 'Update'">
+                                                <span ng-show="!reverseSort">^</span>
+                                                <span ng-show="reverseSort">v</span>
+                                            </span>
+                                        </a>
+                                    </div>
+                                </th>
+                                <th data-sortable="true" data-align="center">
+                                    <div class="">
+                                        <a href="#" ng-click="orderByField='Error'; reverseSort = !reverseSort">
+                                            Error
+                                            <span ng-show="orderByField == 'Error'">
+                                                <span ng-show="!reverseSort">^</span>
+                                                <span ng-show="reverseSort">v</span>
+                                            </span>
+                                        </a>
+                                    </div>
+                                </th>
+                                <th data-sortable="true" data-align="center">
+                                    <div class="">
+                                        <a href="#" ng-click="orderByField='Version'; reverseSort = !reverseSort">
+                                            Version
+                                            <span ng-show="orderByField == 'Version'">
+                                                <span ng-show="!reverseSort">^</span>
+                                                <span ng-show="reverseSort">v</span>
+                                            </span>
+                                        </a>
+                                    </div>
+                                </th>
+                                <th data-sortable="true" data-align="center">
+                                    <div class="">
+                                        <a href="#" ng-click="orderByField='Transfer'; reverseSort = !reverseSort">
+                                            Transfer
+                                            <span ng-show="orderByField == 'Transfer'">
+                                                <span ng-show="!reverseSort">^</span>
+                                                <span ng-show="reverseSort">v</span>
+                                            </span>
+                                        </a>
+                                    </div>
+                                </th>
+                            </tr>
+                        </thead>
+                        <!-- <tbody ng-repeat="info in negativeWords | orderBy:orderByField:reverseSort"> -->
+                        <tbody>
+                            <!--  <tr>
+                                <td data-align="center" class='text-center'>
+                                
+                                </td>
+                                <td data-align="center" class='text-center'>
+                                    <h4>{{info.commentCount}}</h4>
+                                </td>
+                                <td data-align="center" class="text-center">
+                                    <h4>{{info.totalHit}}</h4>
+                                </td>
+                                <td data-align="center" class="text-center" ng-repeat="word in info.count">
+                                    <h4>{{word}}</h4>
+                                </td>
+                            </tr> -->
+                            <tr>
+                                <td class='text-center'>
+                                    <strong>{{startDateWordFrequency}} to {{endDateWordFrequency}}</strong>
+                                </td>
+                                <td class='text-center'>
+                                    <strong>{{USA1.length + Chile1.length + Colombia1.length + Spain1.length + Mexico1.length + USA2.length + Chile2.length + Colombia2.length + Spain2.length + Mexico2.length}}</strong>
+                                </td>
+                                <td class='text-center'>
+                                    <strong>{{wordFrequency.cant1.count + wordFrequency.cant2.count + wordFrequency.wont1.count + wordFrequency.wont2.count + wordFrequency.login1.count + wordFrequency.login2.count + wordFrequency.crashes1.count + wordFrequency.crashes2.count + wordFrequency.deposit.count + wordFrequency.pay.count + wordFrequency.update.count + wordFrequency.error.count + wordFrequency.version.count + wordFrequency.transfer.count}}</strong>
+                                </td>
+                                <td class='text-center'>
+                                    <strong ng-if="wordFrequency.cant1.count === 0 && wordFrequency.cant2.count === 0">-</strong>
+                                    <strong ng-if="wordFrequency.cant1.count || wordFrequency.cant2.count">{{wordFrequency.cant1.count + wordFrequency.cant2.count}}</strong>
+                                </td>
+                                <td class='text-center'>
+                                    <strong ng-if="wordFrequency.wont1.count === 0 && wordFrequency.wont2.count === 0">-</strong>
+                                    <strong ng-if="wordFrequency.wont1.count || wordFrequency.wont2.count">{{wordFrequency.wont1.count + wordFrequency.wont2.count}}</strong>
+                                </td>
+                                <td class='text-center'>
+                                    <strong ng-if="wordFrequency.login1.count === 0 && wordFrequency.login2.count === 0">-</strong>
+                                    <strong ng-if="wordFrequency.login1.count || wordFrequency.login2.count">{{wordFrequency.login1.count + wordFrequency.login2.count}}</strong>
+                                </td>
+                                <td class='text-center'>
+                                    <strong ng-if="wordFrequency.crashes1.count === 0 && wordFrequency.crashes2.count === 0">-</strong>
+                                    <strong ng-if="wordFrequency.crashes1.count || wordFrequency.crashes2.count">{{wordFrequency.crashes1.count + wordFrequency.crashes2.count}}</strong>
+                                </td>
+                                <td class='text-center'>
+                                    <strong ng-if="wordFrequency.deposit.count === 0">-</strong>
+                                    <strong ng-if="wordFrequency.deposit.count">{{wordFrequency.deposit.count}}</strong>
+                                </td>
+                                <td class='text-center'>
+                                    <strong ng-if="wordFrequency.pay.count === 0">-</strong>
+                                    <strong ng-if="wordFrequency.pay.count">{{wordFrequency.pay.count}}</strong>
+                                </td>
+                                <td class='text-center'>
+                                    <strong ng-if="wordFrequency.update.count === 0">-</strong>
+                                    <strong ng-if="wordFrequency.update.count">{{wordFrequency.update.count}}</strong>
+                                </td>
+                                <td class='text-center'>
+                                    <strong ng-if="wordFrequency.error.count === 0">-</strong>
+                                    <strong ng-if="wordFrequency.error.count">{{wordFrequency.error.count}}</strong>
+                                </td>
+                                <td class='text-center'>
+                                    <strong ng-if="wordFrequency.version.count === 0">-</strong>
+                                    <strong ng-if="wordFrequency.version.count">{{wordFrequency.version.count}}</strong>
+                                </td>
+                                <td class='text-center'>
+                                    <strong ng-if="wordFrequency.transfer.count === 0">-</strong>
+                                    <strong ng-if="wordFrequency.transfer.count">{{wordFrequency.transfer.count}}</strong>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <hr>
+    <table>
+        <!-- <span style="border: solid 1px black"<hr></span> -->
+        <h3 style="width:200px;"><u>Comments:</u></h3>
+        <tr>
+            <td>
+                <div style="margin: 10px;">
+                    <h3 style="margin:20px"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0ICQMB9xQAAAAlwSFlzAAAXEgAAFxIBZ5/SUgAAABl0RVh0U29mdHdhcmUATWljcm9zb2Z0IE9mZmljZX/tNXEAAAP1SURBVEjH7ZZfaFtVHMeDHcM5mXRTcA+iBKka19jk5ub+SdK0MsUHUR9WJooIIu5BfBLBB0GCbFbBSnWyXWeS23Nv0vSuTdqtmK13mEty7kmaP3Ndk80JXVcHohbRB1EQ5XjOvSs67ZY0C/igDz/u4dzD73N+53zP7/dzRCIRRzPTNEfXsN69tek67LhJ0rpvbcWno5VF2WzPZil3z+uSvvP2662Tcne/LOWcD3UMTO2j3M4HD+l3PRM1GBdAzIsA+UbGTPaIjJjX4pB5OGr0eMiaZ1v11zJYyrndiaJ/RS35f8vUg3i6HrKtEcKpioBTNf/PZENvdBQs5Vz7UhXu1+xSGE9UA1g1BayiPy1RFPGx8/149ssQls2+jKQ3v+em0Giu56mZcwJOzovfy3nPqwCy36TKgb9ASbRVEcuwbyRRZCdPXR7AUaM3c0Pg0exjmwD01Y9/EcYA+i9FDTenmOxZ7XTgqmhTFRHH8+weAL0jGXL8Uwt0I8xg2+B4ftdz6UUbQiLGEzXyLYn/OGpqFE4jV8i/zGIIxwrez8jz6moT7E2dujyI02dDlrPper/1Xc+o0NbGsxfCWEEslqDzjpbBw5rztqEhe6cAck+PV/lDwPR9sBFLIPYgQNzb+tLumy1xQtf264Ljxq69E6fZrxXkrUi6886oce8Latl14uP8/bMbsRh64NMjxn2JYc2xJQ7d+9OL/KoMexWi9lvWBQOTrdFjos+GKPhNxRTfO7k8iKfOhDZkx86HiQ7E1Tj0PJKc58hV9WOqFWAw3Lpg1eSLUwt2cpALvneIaA7Q8d+F1Myst46EiwCxTygmj8fLIh4n4gMwIF4DzKE1MIDMgRsFk3T6uGJyv1vgsgUW/gf/R8EKFEqdVLW8pup5O59fU9Vkd5Xs0gA+ecl+x2OmuL9tsCksEx+7k2XOetfpxSABc/51wTLkHp38PGgmSp65UZK5VBh4nxb69iLmv9WqzLZYvjeSaQSrCuLezV7o2dxSkUgU+djMufbAChJ+1BqB7W1VJ1Bg3ppbCeOZRj8+SmowLXm0JNLib1UkchoWhMxRo6WTXk324gAm6XdF051b2wJrVec2FbGRZClwmDiuUIhVjxH/i4J4mUT1IRk36DwVkIq4H8jcJ0drgYOkaRA60uyRI3x+LUJg+r/TrpROueAZnWnQriOIFcjBjneZKgq8RNuaK+BVoLt20Pkx6Ds8XbfBNA90HAyQsO9fAZOjfoW2sLZi/T8BndlhP0EmfpzM22Ch1nFwFLoHJ8/w+MRyGI/BvrSGh7rsvswzNLkg4LmvyHzBG+s42OqdDHcoVWafHM06Nl3dezO+ZNmzR6t2b2nV1x96ZB6LSlosBQAAAABJRU5ErkJggg==
+                        "> <span style="vertical-align:top">Android</span></h3>
+                    <table>
+                        <tr ng-if="USA1.length" class="countryAndPicDivWidth">
+                            <td class="countryAndPic"><img src="data:image/png;base64,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"><strong class="country">US</strong>
+                            </td>
+                        </tr>
+                        <tr ng-if="USA1.length">
+                            <td>
+                                <table class="table-bordered max">
+                                    <tr>
+                                        <th class="commentWidth1">Rating</th>
+                                        <th class="commentWidth2">Comments</th>
+                                        <th class="commentWidth3">Date</th>
+                                    </tr>
+                                    <tr ng-repeat="info in USA1 | orderBy: 'rating'">
+                                        <td>
+                                            {{info.rating}}
+                                        </td>
+                                        <td>
+                                            <span ng-if="info.subject"><strong>Subject:</strong> {{info.subject}}</span>
+                                            <br ng-if="info.subject">
+                                            <br ng-if="info.subject">
+                                            <strong>Comment:</strong> {{info.body}}
+                                            <br>
+                                            <br>
+                                            <span ng-if="info.translated_subject"><strong>Translated Subject:</strong> {{info.translated_subject}}</span>
+                                            <br ng-if="info.subject">
+                                            <br ng-if="info.subject">
+                                            <strong ng-if="info.translated_body">Translated:</strong> {{info.translated_body}}
+                                        </td>
+                                        <td class="text-center">
+                                            {{info.published_at}}
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr ng-if="Chile1.length">
+                            <td class="countryAndPic"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAZCAMAAAB0BpxXAAAEBWlDQ1BpY2MAAHjajVVdaBxVFD67c2cjJM5TbDSFdKg/DSUNk1Y0obS6f93dNm6WSTbaIuhk9u7OmMnOODO7/aFPRVB8MeqbFMS/t4AgKPUP2z60L5UKJdrUICg+tPiDUOiLpuuZOzOZabqx3mXufPOd75577rln7wXouapYlpEUARaari0XMuJzh4+IPSuQhIegFwahV1EdK12pTAI2Twt3tVvfQ8J7X9nV3f6frbdGHRUgcR9is+aoC4iPAfCnVct2AXr6kR8/6loe9mLotzFAxC96uOFj18NzPn6NaWbkLOLTiAVVU2qIlxCPzMX4Rgz7MbDWX6BNauuq6OWiYpt13aCxcO9h/p9twWiF823Dp8+Znz6E72Fc+ys1JefhUcRLqpKfRvwI4mttfbYc4NuWm5ERPwaQ3N6ar6YR70RcrNsHqr6fpK21iiF+54Q28yziLYjPN+fKU8HYq6qTxZzBdsS3NVry8jsEwIm6W5rxx3L7bVOe8ufl6jWay3t5RPz6vHlI9n1ynznt6Xzo84SWLQf8pZeUgxXEg4h/oUZB9ufi/rHcShADGWoa5Ul/LpKjDlsv411tpujPSwwXN9QfSxbr+oFSoP9Es4tygK9ZBqtRjI1P2i256uv5UcXOF3yffIU2q4F/vg2zCQUomDCHvQpNWAMRZChABt8W2Gipgw4GMhStFBmKX6FmFxvnwDzyOrSZzcG+wpT+yMhfg/m4zrQqZIc+ghayGvyOrBbTZfGrhVxjEz9+LDcCPyYZIBLZg89eMkn2kXEyASJ5ijxN9pMcshNk7/rYSmxFXjw31v28jDNSpptF3Tm0u6Bg/zMqTFxT16wsDraGI8sp+wVdvfzGX7Fc6Sw3UbbiGZ26V875X/nr/DL2K/xqpOB/5Ffxt3LHWsy7skzD7GxYc3dVGm0G4xbw0ZnFicUd83Hx5FcPRn6WyZnnr/RdPFlvLg5GrJcF+mr5VhlOjUSs9IP0h7QsvSd9KP3Gvc19yn3Nfc59wV0CkTvLneO+4S5wH3NfxvZq8xpa33sWeRi3Z+mWa6xKISNsFR4WcsI24VFhMvInDAhjQlHYgZat6/sWny+ePR0OYx/mp/tcvi5WAYn7sQL0Tf5VVVTpcJQpHVZvTTi+QROMJENkjJQ2VPe4V/OhIpVP5VJpEFM7UxOpsdRBD4ezpnagbQL7/B3VqW6yUurSY959AlnTOm7rDc0Vd0vSk2IarzYqlprq6IioGIbITI5oU4fabVobBe/e9I/0mzK7DxNbLkec+wzAvj/x7Psu4o60AJYcgIHHI24Yz8oH3gU484TastvBHZFIfAvg1Pfs9r/6Mnh+/dTp3MRzrOctgLU3O52/3+901j5A/6sAZ41/AaCffFXzrcXrAAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1MAAA6mAAADqYAAAXcJy6UTwAAAK1UExURQoigAokhgojhAojhQojhQojhQokhQojhQojhQojhQ0mhgEYf6Kszu7u8urr8O7u8e3t8e7u8d3e5QojhAoliwoligoligoligsmigUgiAkkigsligoligolig0oiwAZg6242f7+//v7/f7+//7+/v7+/+3t8cQGEtUFDtIFD9IFD7gGFcgGEsUGEsUGEgokhgomjAoliwoliwoliwoliwsmjAomiwoliwoliwoliw0ojAAZhLC62/////////Hx9AojhQoliwoligkkiQsmigQfh1BlrhYwkAcjiQkkiQolig0oiwAZhK642fz8/f7+/u7u8QoliwkkiRArjQkligMgiNvg70BWpAAVgRMtjgolig0oiwAZhAsmjAchiCI6lqay1tLZ6/z9/tzh77zD4EVapwUfhw8pjAAZhAoliwsmigchiB00ks/V6fv8/kVapwIdhgsmiw0oiwAZhAoliwsligkkiQ4ojNHX6p6n0ODk8URZpgEahA0oiw0oiwoliwsmigMehi5GnUtgqgANfStEm01irAUdhgwniw0oiwoligsmigciiAAbhQ4pjAQfhwIehgsmiwolig0oiw0jgw0liQ0kiA0kiA4liBAniQ0kiA8miQ8miQ0kiA0liBAniQMZgq+11v77+/v4+f77+/76+/77++3q7gAmjQAolAAnkwAnkwAnkwAnkwAnkwAnkwAnkwAqlAAajKvF6P////H//20USHYUSXQUSXQUSXQUSXYVSm8ORsFZbuh7gOZ5f+h7gOd7gOl7gNhze9IECuUDBeEDBuIDBuIDBuECBuIEB9YAANAAANAAANAAAM8AANMAAMIAAsIGFNIFEM8GEdAGEdAGEdAFEdIIEtQJE9QJE9QJE9MJE9YJEsUKFsUGEtYFDtIFD9MFD8cGEtgFDtUFD9YFDgTKla8AAAAvdFJOU/j4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj////////////////////////////////9/f39XjybowAAAAFiS0dEPdBtUVkAAAAJcEhZcwAAFxIAABcSAWef0lIAAAAHdElNRQfhAwgLGy7qbRkMAAABSUlEQVQ4y2NgYGRiZmFlY+dg5uTi5uHl48cGBASFGPQNDI2MTUzNzC0sraxtbO1ssQN7BmERUTFxCUkpaRlZOXkFRSVlbEBFVY3BwdHJ2cXVzd3D08vbx9fWD6t5/rYBDA6BQcEhoWHhEZFR0TF4FcbGxSckJiWnpKalZ+BVmJmVnZNrm5dfUFhUjFdhSWlZeUVlVXVNbR1+N9Y3NDY1t7S2tXd0ElDY1d3T29c/YeKkyXgVTpk6bfqMmbNmz5k7b/6ChYsWL8EGli5bzrBi5arVa9auXrd+3YaNmzbbbsERM1sZtm3fsRMCdu3es3ff/gPYwMFDhxmOHD12HAJOnDx1+szZc9jA+QsXGS5dvnIVCq5dv3Hz1m1s4M7dewz3Hzx8RBA8fHB/hCpU19DUIgg0NdQZHj95+owgePrkMYO2jq4eQaCrow0AnOoVC2RTbT4AAAAldEVYdGRhdGU6Y3JlYXRlADIwMTctMDMtMDhUMTE6Mjc6NDYtMDU6MDAz0crNAAAAJXRFWHRkYXRlOm1vZGlmeQAyMDE3LTAzLTA4VDExOjI3OjQ2LTA1OjAwQoxycQAAAABJRU5ErkJggg=="><strong class="country">Chile</strong></td>
+                        </tr>
+                        <tr ng-if="Chile1.length">
+                            <td>
+                                <table class="table-bordered max" id="Chile_comments_android">
+                                    <tr>
+                                        <th class="commentWidth1">Rating</th>
+                                        <th class="commentWidth2">Comments</th>
+                                        <th class="commentWidth3">Date</th>
+                                    </tr>
+                                    <tr ng-repeat="info in Chile1 | orderBy: 'rating'">
+                                        <td>
+                                            {{info.rating}}
+                                        </td>
+                                        <td>
+                                            <span ng-if="info.subject"><strong>Subject:</strong> {{info.subject}}</span>
+                                            <br ng-if="info.subject">
+                                            <br ng-if="info.subject">
+                                            <strong>Comment:</strong> {{info.body}}
+                                            <br>
+                                            <br>
+                                            <span ng-if="info.translated_subject"><strong>Translated Subject:</strong> {{info.translated_subject}}</span>
+                                            <br ng-if="info.subject">
+                                            <br ng-if="info.subject">
+                                            <strong ng-if="info.translated_body">Translated:</strong> {{info.translated_body}}
+                                        </td>
+                                        <td class="text-center">
+                                            {{info.published_at}}
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr ng-if="Colombia1.length">
+                            <td class="countryAndPic"><img src="data:image/png;base64,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"><strong class="country">Colombia</strong></td>
+                        </tr>
+                        <tr class="rowFix" ng-if="Colombia1.length">
+                            <td>
+                                <table class="table-bordered max" id="Colombia_comments_android">
+                                    <tr>
+                                        <th class="commentWidth1">Rating</th>
+                                        <th class="commentWidth2">Comments</th>
+                                        <th class="commentWidth3">Date</th>
+                                    </tr>
+                                    <tr ng-repeat="info in Colombia1 | orderBy: 'rating'">
+                                        <td>
+                                            {{info.rating}}
+                                        </td>
+                                        <td>
+                                            <span ng-if="info.subject"><strong>Subject:</strong> {{info.subject}}</span>
+                                            <br ng-if="info.subject">
+                                            <br ng-if="info.subject">
+                                            <strong>Comment:</strong> {{info.body}}
+                                            <br>
+                                            <br>
+                                            <span ng-if="info.translated_subject"><strong>Translated Subject:</strong> {{info.translated_subject}}</span>
+                                            <br ng-if="info.subject">
+                                            <br ng-if="info.subject">
+                                            <strong ng-if="info.translated_body">Translated:</strong> {{info.translated_body}}
+                                        </td>
+                                        <td class="text-center">
+                                            {{info.published_at}}
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr ng-if="Spain1.length">
+                            <td class="countryAndPic"><img src="data:image/png;base64,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"><strong class="country">Spain</strong></td>
+                        </tr>
+                        <tr ng-if="Spain1.length">
+                            <td>
+                                <table class="table-bordered max" id="Spain_comments_android">
+                                    <tr>
+                                        <th class="commentWidth1">Rating</th>
+                                        <th class="commentWidth2">Comments</th>
+                                        <th class="commentWidth3">Date</th>
+                                    </tr>
+                                    <tr ng-repeat="info in Spain1 | orderBy: 'rating'">
+                                        <td>
+                                            {{info.rating}}
+                                        </td>
+                                        <td>
+                                            <span ng-if="info.subject"><strong>Subject:</strong> {{info.subject}}</span>
+                                            <br ng-if="info.subject">
+                                            <br ng-if="info.subject">
+                                            <strong>Comment:</strong> {{info.body}}
+                                            <br>
+                                            <br>
+                                            <span ng-if="info.translated_subject"><strong>Translated Subject:</strong> {{info.translated_subject}}</span>
+                                            <br ng-if="info.subject">
+                                            <br ng-if="info.subject">
+                                            <strong ng-if="info.translated_body">Translated:</strong> {{info.translated_body}}
+                                        </td>
+                                        <td class="text-center">
+                                            {{info.published_at}}
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr ng-if="Mexico1.length">
+                            <td class="countryAndPic"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAZCAMAAAB0BpxXAAAEBWlDQ1BpY2MAAHjajVVdaBxVFD67c2cjJM5TbDSFdKg/DSUNk1Y0obS6f93dNm6WSTbaIuhk9u7OmMnOODO7/aFPRVB8MeqbFMS/t4AgKPUP2z60L5UKJdrUICg+tPiDUOiLpuuZOzOZabqx3mXufPOd75577rln7wXouapYlpEUARaari0XMuJzh4+IPSuQhIegFwahV1EdK12pTAI2Twt3tVvfQ8J7X9nV3f6frbdGHRUgcR9is+aoC4iPAfCnVct2AXr6kR8/6loe9mLotzFAxC96uOFj18NzPn6NaWbkLOLTiAVVU2qIlxCPzMX4Rgz7MbDWX6BNauuq6OWiYpt13aCxcO9h/p9twWiF823Dp8+Znz6E72Fc+ys1JefhUcRLqpKfRvwI4mttfbYc4NuWm5ERPwaQ3N6ar6YR70RcrNsHqr6fpK21iiF+54Q28yziLYjPN+fKU8HYq6qTxZzBdsS3NVry8jsEwIm6W5rxx3L7bVOe8ufl6jWay3t5RPz6vHlI9n1ynznt6Xzo84SWLQf8pZeUgxXEg4h/oUZB9ufi/rHcShADGWoa5Ul/LpKjDlsv411tpujPSwwXN9QfSxbr+oFSoP9Es4tygK9ZBqtRjI1P2i256uv5UcXOF3yffIU2q4F/vg2zCQUomDCHvQpNWAMRZChABt8W2Gipgw4GMhStFBmKX6FmFxvnwDzyOrSZzcG+wpT+yMhfg/m4zrQqZIc+ghayGvyOrBbTZfGrhVxjEz9+LDcCPyYZIBLZg89eMkn2kXEyASJ5ijxN9pMcshNk7/rYSmxFXjw31v28jDNSpptF3Tm0u6Bg/zMqTFxT16wsDraGI8sp+wVdvfzGX7Fc6Sw3UbbiGZ26V875X/nr/DL2K/xqpOB/5Ffxt3LHWsy7skzD7GxYc3dVGm0G4xbw0ZnFicUd83Hx5FcPRn6WyZnnr/RdPFlvLg5GrJcF+mr5VhlOjUSs9IP0h7QsvSd9KP3Gvc19yn3Nfc59wV0CkTvLneO+4S5wH3NfxvZq8xpa33sWeRi3Z+mWa6xKISNsFR4WcsI24VFhMvInDAhjQlHYgZat6/sWny+ePR0OYx/mp/tcvi5WAYn7sQL0Tf5VVVTpcJQpHVZvTTi+QROMJENkjJQ2VPe4V/OhIpVP5VJpEFM7UxOpsdRBD4ezpnagbQL7/B3VqW6yUurSY959AlnTOm7rDc0Vd0vSk2IarzYqlprq6IioGIbITI5oU4fabVobBe/e9I/0mzK7DxNbLkec+wzAvj/x7Psu4o60AJYcgIHHI24Yz8oH3gU484TastvBHZFIfAvg1Pfs9r/6Mnh+/dTp3MRzrOctgLU3O52/3+901j5A/6sAZ41/AaCffFXzrcXrAAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1MAAA6mAAADqYAAAXcJy6UTwAAAK+UExURQtXNwtXNw5ZOgBNK6vGu/////v9/P77/OqosrwAD8EDIMAAHcAAHQtXNwtXNw5ZOgBNK6vGu/////v9/P77/OqosrwAD8EDIMAAHcAAHQtXNwtXNw5ZOgBNK6vGu/////v9/P77/OqosrwAD8EDIMAAHcAAHQtXNwtXNw5ZOgBNK6vGu/////v9/P77/OqosrwAD8EDIMAAHcAAHQtXNwtXNw5ZOgBNK6vGu/////v9/P77/OqosrwAD8EDIMAAHcAAHf////////7+/v38/P7+/f////////77/Pv9/P///////v79/f79/f77/Pv9/PTv68+4qO/m4v79/f77/Pv9/P7+/fLz6tnCr6h+V3lCHV81Hsu9s/36+vv7+t/cwseeWZZiN3JDJE8rGFcuGunh3f7+/v///+qosgBNK6vGu/////////jy4ODgzdTJsI1dNkkmFnJDJFspCKOJe+qosrwADwBNK6vGu/Hz8Pj16sfCntW/lXlPLWA6HrCcj4FkVo14bfr7+f7//+qosrwADwBNK63Hvf/+/cPFo+rOzcK/qNmyZaRzTEEhF2NKQbSspr67u8HAnvn//eyqtbwADwBNK6vFuv///9vWt8LRzWSTlayrqam+v6KOZnBbPJmCft/bzc/NsP///+mnsbwADwBNK6rFudHVwtvTr87i31ueq1iIg1yJdXShkqzCytbNr87Puv///+insLwADwBNK6zGu////8rKqrrBpqLZ49OVWqeHXqnR28fHpcPGp////+qosrwAD6vGu/v8+/n7+t7Yuba1iqemk7qkk6KrguLeyPf49f37++qosqvGu/v8/PT28ubi3+fc2/T17v77++qosvz9/P////7+/v7+/v////77/Pv9/P///////////v7+/v7+/v7//v////////77/AtXNwtXNw5ZOsriCW4AAAA0dFJOU/j4+Pj4+Pj4+Pj4+Pj///////////////////////////////////39/f39/f39/f39/f3pK6gBAAAAAWJLR0QF+G/pxwAAAAlwSFlzAAAXEgAAFxIBZ5/SUgAAAAd0SU1FB+EDCAsUNeeQzC8AAAFqSURBVDjLY2CAA0YmZhZWNlYoYGfl4OTi5oEDBhM4MDUzt7C0soQCa0sbWzt7Bzhg4IUDPn4BQSFhISgQERIVE5eQhAPiTSRfoaOTs4urm7sHAYWeXt4+QPN8Lf0IKPQHqgoIDLIMDiGgMDQsPCIyKjrGMpaAwjjL+ITEpOSU1LT0DNwKM7Oyc3Lz8gsKi4pLLC1Ly3AqLK+wrKyqrqmtq29obGpuacWpsK29o7Oru6e3r3/CxEmTp0zFqXDa9BkzZ82eM3fe/AULFy1eshSnwmXLLVesXLV6zdp16zds3LR5C06FW7dtt9yxc9fuPXv37bc8cPAQ7uA5bHnk6LHjJ06eOn3mrOU5POF43vKCpeXFS5evWFpetbyGN8Cv37gJSju3bt8hEDN3791/8PDR4ydPn1EvPeJSKAUH0jKycvIK8lCgKK+krKKqBgcMz+HgxctMfCaqw4GGppa2jq4OFOjp6BsYGhnDAQCjJBBpUc5uggAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxNy0wMy0wOFQxMToyMDo1My0wNTowME+f/o0AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTctMDMtMDhUMTE6MjA6NTMtMDU6MDA+wkYxAAAAAElFTkSuQmCC"><strong class="country">Mexico</strong></td>
+                        </tr>
+                        <tr ng-if="Mexico1.length">
+                            <td>
+                                <table class="table-bordered max" id="Mexico_comments_android">
+                                    <tr>
+                                        <th class="commentWidth1">Rating</th>
+                                        <th class="commentWidth2">Comments</th>
+                                        <th class="commentWidth3">Date</th>
+                                    </tr>
+                                    <tr ng-repeat="info in Mexico1 | orderBy: 'rating'">
+                                        <td>
+                                            {{info.rating}}
+                                        </td>
+                                        <td>
+                                            <span ng-if="info.subject"><strong>Subject:</strong> {{info.subject}}</span>
+                                            <br ng-if="info.subject">
+                                            <br ng-if="info.subject">
+                                            <strong>Comment:</strong> {{info.body}}
+                                            <br>
+                                            <br>
+                                            <span ng-if="info.translated_subject"><strong>Translated Subject:</strong> {{info.translated_subject}}</span>
+                                            <br ng-if="info.subject">
+                                            <br ng-if="info.subject">
+                                            <strong ng-if="info.translated_body">Translated:</strong> {{info.translated_body}}
+                                        </td>
+                                        <td class="text-center">
+                                            {{info.published_at}}
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <!-- <tbody>
+                            
+                        </tbody> -->
+                    </table>
+                </div>
+            </td>
+            <tr>
+    </table>
+    <hr>
+    <table>
+        <tr>
+            <td style="vertical-align:top;">
+                <div style="margin: 10px;">
+                    <h3 style="margin:20px"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0ICQMB9xQAAAAlwSFlzAAAXEgAAFxIBZ5/SUgAAABl0RVh0U29mdHdhcmUATWljcm9zb2Z0IE9mZmljZX/tNXEAAAMWSURBVEjHxZfrThNREIDxBcCnQMV3ULy8hrDdbrfXvR5g1YpSjREKxISEYExQjNFg/IH0IreY1Avx8gCCfzFYEwN/uKTFlnHmpBAqpZx1IZ5ksunZznwzc+acM9uQSCQa/occ+MJxnJMop1g83sIYcyeoQ7ooTcJgWVYuaxqbNAz7p6ZbJd2wt/HpSio6JQ1tmJb9ql2WL9UFS7ISMa0O6HKuAz11g6HY/yYmg722JEkN1wQrSqjVsjuBBL09UiGbBJdV9XwVGMcJTbNek3dHDd0RbtuwMsTaBatYSNGYsUJeuTUYUCMg+9VD/2damEnN/KWqauMuWGfsdEwzy7Q2bqB+JQgDg/dhZnYObNYF6PyB/63Y/o1V37wLZsw5u1MUbqCjo4+BxtraGkSi+iFgRs9t5jhn9oBZS2Ub1IWR8VA4BsFQlK9ZqVTi4LEnT6GtXQbM2oG6BlY5zypmVxhMkdA6Ujq7u3tACYTgXm8S8vk8jL94ySs2fuMmd0oNRmpmzjWYoBThZCoNK6ursLW1BcvLPyCXewupVAY+ff4C6+vrUCwWYXHxG/QlB9ABzTvYj9Hlcu9AdCwtfYdQRNuXdldgSluyf1AYSpEnbt/lGfIUseQLQDqTFQbPzb2BK20+72vskwOu0vzs+Th31nNVSwienp4VBr//MM8j9gyW/XhIPBoTBlNlJ5ODfOv9bcsVOIzVefVaHAqFgjC8UCjC8PAInuFhb9uJ1plS6Gb09vXzHeEJTKcRRb25uSkEzWansMAUsTV26lwSNOfDNRt58LAKUC6XYWNjo2ru68ICBNHRWpdFxXb1JUFeVPqrurfR0NAwPyJT6Qzc6rkDrMPhc/PzH2FqeoYbpwwJX4vYCDSJNAJUMFSxJHQ60W1FF8bOHP3W6zYCRnUjQO1ILGZkj7310azMvmZPkpRW8upYmz1ZPVezvcUXob0tKVUirY3B21wxMSotsbG/vQ3WbeglRblo2p0TqJynYkAp0zZwI6RDurph5U2zcwIDuiD8CaOqTiNj8WYqf6p6N0I6pEs2XH87Hbf8AYjtGrbXteX6AAAAAElFTkSuQmCC
+                        "> <span style="vertical-align:top">iOS</span></h3>
+                    <table>
+                        <tr ng-if="USA2.length">
+                            <td class="countryAndPic"><img src="data:image/png;base64,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"><strong class="country">US</strong></td>
+                        </tr>
+                        <tr ng-if="USA2.length">
+                            <td>
+                                <table class="table-bordered max" id="US_comments_ios">
+                                    <tr>
+                                        <th class="commentWidth1">Rating</th>
+                                        <th class="commentWidth2">Comments</th>
+                                        <th class="commentWidth3">Date</th>
+                                    </tr>
+                                    <tr ng-repeat="info in USA2 | orderBy: 'rating'">
+                                        <td>
+                                            {{info.rating}}
+                                        </td>
+                                        <td>
+                                            <span ng-if="info.subject"><strong>Subject:</strong> {{info.subject}}</span>
+                                            <br ng-if="info.subject">
+                                            <br ng-if="info.subject">
+                                            <strong>Comment:</strong> {{info.body}}
+                                            <br>
+                                            <br>
+                                            <span ng-if="info.translated_subject"><strong>Translated Subject:</strong> {{info.translated_subject}}</span>
+                                            <br ng-if="info.subject">
+                                            <br ng-if="info.subject">
+                                            <strong ng-if="info.translated_body">Translated:</strong> {{info.translated_body}}
+                                        </td>
+                                        <td class="text-center">
+                                            {{info.published_at}}
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr ng-if="Chile2.length">
+                            <td class="countryAndPic"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAZCAMAAAB0BpxXAAAEBWlDQ1BpY2MAAHjajVVdaBxVFD67c2cjJM5TbDSFdKg/DSUNk1Y0obS6f93dNm6WSTbaIuhk9u7OmMnOODO7/aFPRVB8MeqbFMS/t4AgKPUP2z60L5UKJdrUICg+tPiDUOiLpuuZOzOZabqx3mXufPOd75577rln7wXouapYlpEUARaari0XMuJzh4+IPSuQhIegFwahV1EdK12pTAI2Twt3tVvfQ8J7X9nV3f6frbdGHRUgcR9is+aoC4iPAfCnVct2AXr6kR8/6loe9mLotzFAxC96uOFj18NzPn6NaWbkLOLTiAVVU2qIlxCPzMX4Rgz7MbDWX6BNauuq6OWiYpt13aCxcO9h/p9twWiF823Dp8+Znz6E72Fc+ys1JefhUcRLqpKfRvwI4mttfbYc4NuWm5ERPwaQ3N6ar6YR70RcrNsHqr6fpK21iiF+54Q28yziLYjPN+fKU8HYq6qTxZzBdsS3NVry8jsEwIm6W5rxx3L7bVOe8ufl6jWay3t5RPz6vHlI9n1ynznt6Xzo84SWLQf8pZeUgxXEg4h/oUZB9ufi/rHcShADGWoa5Ul/LpKjDlsv411tpujPSwwXN9QfSxbr+oFSoP9Es4tygK9ZBqtRjI1P2i256uv5UcXOF3yffIU2q4F/vg2zCQUomDCHvQpNWAMRZChABt8W2Gipgw4GMhStFBmKX6FmFxvnwDzyOrSZzcG+wpT+yMhfg/m4zrQqZIc+ghayGvyOrBbTZfGrhVxjEz9+LDcCPyYZIBLZg89eMkn2kXEyASJ5ijxN9pMcshNk7/rYSmxFXjw31v28jDNSpptF3Tm0u6Bg/zMqTFxT16wsDraGI8sp+wVdvfzGX7Fc6Sw3UbbiGZ26V875X/nr/DL2K/xqpOB/5Ffxt3LHWsy7skzD7GxYc3dVGm0G4xbw0ZnFicUd83Hx5FcPRn6WyZnnr/RdPFlvLg5GrJcF+mr5VhlOjUSs9IP0h7QsvSd9KP3Gvc19yn3Nfc59wV0CkTvLneO+4S5wH3NfxvZq8xpa33sWeRi3Z+mWa6xKISNsFR4WcsI24VFhMvInDAhjQlHYgZat6/sWny+ePR0OYx/mp/tcvi5WAYn7sQL0Tf5VVVTpcJQpHVZvTTi+QROMJENkjJQ2VPe4V/OhIpVP5VJpEFM7UxOpsdRBD4ezpnagbQL7/B3VqW6yUurSY959AlnTOm7rDc0Vd0vSk2IarzYqlprq6IioGIbITI5oU4fabVobBe/e9I/0mzK7DxNbLkec+wzAvj/x7Psu4o60AJYcgIHHI24Yz8oH3gU484TastvBHZFIfAvg1Pfs9r/6Mnh+/dTp3MRzrOctgLU3O52/3+901j5A/6sAZ41/AaCffFXzrcXrAAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1MAAA6mAAADqYAAAXcJy6UTwAAAK1UExURQoigAokhgojhAojhQojhQojhQokhQojhQojhQojhQ0mhgEYf6Kszu7u8urr8O7u8e3t8e7u8d3e5QojhAoliwoligoligoligsmigUgiAkkigsligoligolig0oiwAZg6242f7+//v7/f7+//7+/v7+/+3t8cQGEtUFDtIFD9IFD7gGFcgGEsUGEsUGEgokhgomjAoliwoliwoliwoliwsmjAomiwoliwoliwoliw0ojAAZhLC62/////////Hx9AojhQoliwoligkkiQsmigQfh1BlrhYwkAcjiQkkiQolig0oiwAZhK642fz8/f7+/u7u8QoliwkkiRArjQkligMgiNvg70BWpAAVgRMtjgolig0oiwAZhAsmjAchiCI6lqay1tLZ6/z9/tzh77zD4EVapwUfhw8pjAAZhAoliwsmigchiB00ks/V6fv8/kVapwIdhgsmiw0oiwAZhAoliwsligkkiQ4ojNHX6p6n0ODk8URZpgEahA0oiw0oiwoliwsmigMehi5GnUtgqgANfStEm01irAUdhgwniw0oiwoligsmigciiAAbhQ4pjAQfhwIehgsmiwolig0oiw0jgw0liQ0kiA0kiA4liBAniQ0kiA8miQ8miQ0kiA0liBAniQMZgq+11v77+/v4+f77+/76+/77++3q7gAmjQAolAAnkwAnkwAnkwAnkwAnkwAnkwAnkwAqlAAajKvF6P////H//20USHYUSXQUSXQUSXQUSXYVSm8ORsFZbuh7gOZ5f+h7gOd7gOl7gNhze9IECuUDBeEDBuIDBuIDBuECBuIEB9YAANAAANAAANAAAM8AANMAAMIAAsIGFNIFEM8GEdAGEdAGEdAFEdIIEtQJE9QJE9QJE9MJE9YJEsUKFsUGEtYFDtIFD9MFD8cGEtgFDtUFD9YFDgTKla8AAAAvdFJOU/j4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj////////////////////////////////9/f39XjybowAAAAFiS0dEPdBtUVkAAAAJcEhZcwAAFxIAABcSAWef0lIAAAAHdElNRQfhAwgLGy7qbRkMAAABSUlEQVQ4y2NgYGRiZmFlY+dg5uTi5uHl48cGBASFGPQNDI2MTUzNzC0sraxtbO1ssQN7BmERUTFxCUkpaRlZOXkFRSVlbEBFVY3BwdHJ2cXVzd3D08vbx9fWD6t5/rYBDA6BQcEhoWHhEZFR0TF4FcbGxSckJiWnpKalZ+BVmJmVnZNrm5dfUFhUjFdhSWlZeUVlVXVNbR1+N9Y3NDY1t7S2tXd0ElDY1d3T29c/YeKkyXgVTpk6bfqMmbNmz5k7b/6ChYsWL8EGli5bzrBi5arVa9auXrd+3YaNmzbbbsERM1sZtm3fsRMCdu3es3ff/gPYwMFDhxmOHD12HAJOnDx1+szZc9jA+QsXGS5dvnIVCq5dv3Hz1m1s4M7dewz3Hzx8RBA8fHB/hCpU19DUIgg0NdQZHj95+owgePrkMYO2jq4eQaCrow0AnOoVC2RTbT4AAAAldEVYdGRhdGU6Y3JlYXRlADIwMTctMDMtMDhUMTE6Mjc6NDYtMDU6MDAz0crNAAAAJXRFWHRkYXRlOm1vZGlmeQAyMDE3LTAzLTA4VDExOjI3OjQ2LTA1OjAwQoxycQAAAABJRU5ErkJggg=="><strong class="country">Chile</strong></td>
+                        </tr>
+                        <tr ng-if="Chile2.length">
+                            <td>
+                                <table class="table-bordered max" id="Chile_comments_ios">
+                                    <tr>
+                                        <th class="commentWidth1">Rating</th>
+                                        <th class="commentWidth2">Comments</th>
+                                        <th class="commentWidth3">Date</th>
+                                    </tr>
+                                    <tr ng-repeat="info in Chile2 | orderBy: 'rating'">
+                                        <td>
+                                            {{info.rating}}
+                                        </td>
+                                        <td>
+                                            <span ng-if="info.subject"><strong>Subject:</strong> {{info.subject}}</span>
+                                            <br ng-if="info.subject">
+                                            <br ng-if="info.subject">
+                                            <strong>Comment:</strong> {{info.body}}
+                                            <br>
+                                            <br>
+                                            <span ng-if="info.translated_subject"><strong>Translated Subject:</strong> {{info.translated_subject}}</span>
+                                            <br ng-if="info.subject">
+                                            <br ng-if="info.subject">
+                                            <strong ng-if="info.translated_body">Translated:</strong> {{info.translated_body}}
+                                        </td>
+                                        <td class="text-center">
+                                            {{info.published_at}}
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr ng-if="Colombia2.length">
+                            <td class="countryAndPic"><img src="data:image/png;base64,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"><strong class="country">Colombia</strong></td>
+                        </tr>
+                        <tr ng-if="Colombia2.length">
+                            <td>
+                                <table class="table-bordered max" id="Colombia_comments_ios">
+                                    <tr>
+                                        <th class="commentWidth1">Rating</th>
+                                        <th class="commentWidth2">Comments</th>
+                                        <th class="commentWidth3">Date</th>
+                                    </tr>
+                                    <tr ng-repeat="info in Colombia2 | orderBy: 'rating'">
+                                        <td>
+                                            {{info.rating}}
+                                        </td>
+                                        <td>
+                                            <span ng-if="info.subject"><strong>Subject:</strong> {{info.subject}}</span>
+                                            <br ng-if="info.subject">
+                                            <br ng-if="info.subject">
+                                            <strong>Comment:</strong> {{info.body}}
+                                            <br>
+                                            <br>
+                                            <span ng-if="info.translated_subject"><strong>Translated Subject:</strong> {{info.translated_subject}}</span>
+                                            <br ng-if="info.subject">
+                                            <br ng-if="info.subject">
+                                            <strong ng-if="info.translated_body">Translated:</strong> {{info.translated_body}}
+                                        </td>
+                                        <td class="text-center">
+                                            {{info.published_at}}
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr ng-if="Spain2.length">
+                            <td class="countryAndPic"><img src="data:image/png;base64,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"><strong class="country">Spain</strong></td>
+                        </tr>
+                        <tr ng-if="Spain2.length">
+                            <td>
+                                <table class="table-bordered max" id="Spain_comments_ios">
+                                    <tr>
+                                        <th class="commentWidth1">Rating</th>
+                                        <th class="commentWidth2">Comments</th>
+                                        <th class="commentWidth3">Date</th>
+                                    </tr>
+                                    <tr ng-repeat="info in Spain2 | orderBy: 'rating'">
+                                        <td>
+                                            {{info.rating}}
+                                        </td>
+                                        <td>
+                                            <span ng-if="info.subject"><strong>Subject:</strong> {{info.subject}}</span>
+                                            <br ng-if="info.subject">
+                                            <br ng-if="info.subject">
+                                            <strong>Comment:</strong> {{info.body}}
+                                            <br>
+                                            <br>
+                                            <span ng-if="info.translated_subject"><strong>Translated Subject:</strong> {{info.translated_subject}}</span>
+                                            <br ng-if="info.subject">
+                                            <br ng-if="info.subject">
+                                            <strong ng-if="info.translated_body">Translated:</strong> {{info.translated_body}}
+                                        </td>
+                                        <td class="text-center">
+                                            {{info.published_at}}
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr ng-if="Mexico2.length">
+                            <td class="countryAndPic"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAZCAMAAAB0BpxXAAAEBWlDQ1BpY2MAAHjajVVdaBxVFD67c2cjJM5TbDSFdKg/DSUNk1Y0obS6f93dNm6WSTbaIuhk9u7OmMnOODO7/aFPRVB8MeqbFMS/t4AgKPUP2z60L5UKJdrUICg+tPiDUOiLpuuZOzOZabqx3mXufPOd75577rln7wXouapYlpEUARaari0XMuJzh4+IPSuQhIegFwahV1EdK12pTAI2Twt3tVvfQ8J7X9nV3f6frbdGHRUgcR9is+aoC4iPAfCnVct2AXr6kR8/6loe9mLotzFAxC96uOFj18NzPn6NaWbkLOLTiAVVU2qIlxCPzMX4Rgz7MbDWX6BNauuq6OWiYpt13aCxcO9h/p9twWiF823Dp8+Znz6E72Fc+ys1JefhUcRLqpKfRvwI4mttfbYc4NuWm5ERPwaQ3N6ar6YR70RcrNsHqr6fpK21iiF+54Q28yziLYjPN+fKU8HYq6qTxZzBdsS3NVry8jsEwIm6W5rxx3L7bVOe8ufl6jWay3t5RPz6vHlI9n1ynznt6Xzo84SWLQf8pZeUgxXEg4h/oUZB9ufi/rHcShADGWoa5Ul/LpKjDlsv411tpujPSwwXN9QfSxbr+oFSoP9Es4tygK9ZBqtRjI1P2i256uv5UcXOF3yffIU2q4F/vg2zCQUomDCHvQpNWAMRZChABt8W2Gipgw4GMhStFBmKX6FmFxvnwDzyOrSZzcG+wpT+yMhfg/m4zrQqZIc+ghayGvyOrBbTZfGrhVxjEz9+LDcCPyYZIBLZg89eMkn2kXEyASJ5ijxN9pMcshNk7/rYSmxFXjw31v28jDNSpptF3Tm0u6Bg/zMqTFxT16wsDraGI8sp+wVdvfzGX7Fc6Sw3UbbiGZ26V875X/nr/DL2K/xqpOB/5Ffxt3LHWsy7skzD7GxYc3dVGm0G4xbw0ZnFicUd83Hx5FcPRn6WyZnnr/RdPFlvLg5GrJcF+mr5VhlOjUSs9IP0h7QsvSd9KP3Gvc19yn3Nfc59wV0CkTvLneO+4S5wH3NfxvZq8xpa33sWeRi3Z+mWa6xKISNsFR4WcsI24VFhMvInDAhjQlHYgZat6/sWny+ePR0OYx/mp/tcvi5WAYn7sQL0Tf5VVVTpcJQpHVZvTTi+QROMJENkjJQ2VPe4V/OhIpVP5VJpEFM7UxOpsdRBD4ezpnagbQL7/B3VqW6yUurSY959AlnTOm7rDc0Vd0vSk2IarzYqlprq6IioGIbITI5oU4fabVobBe/e9I/0mzK7DxNbLkec+wzAvj/x7Psu4o60AJYcgIHHI24Yz8oH3gU484TastvBHZFIfAvg1Pfs9r/6Mnh+/dTp3MRzrOctgLU3O52/3+901j5A/6sAZ41/AaCffFXzrcXrAAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1MAAA6mAAADqYAAAXcJy6UTwAAAK+UExURQtXNwtXNw5ZOgBNK6vGu/////v9/P77/OqosrwAD8EDIMAAHcAAHQtXNwtXNw5ZOgBNK6vGu/////v9/P77/OqosrwAD8EDIMAAHcAAHQtXNwtXNw5ZOgBNK6vGu/////v9/P77/OqosrwAD8EDIMAAHcAAHQtXNwtXNw5ZOgBNK6vGu/////v9/P77/OqosrwAD8EDIMAAHcAAHQtXNwtXNw5ZOgBNK6vGu/////v9/P77/OqosrwAD8EDIMAAHcAAHf////////7+/v38/P7+/f////////77/Pv9/P///////v79/f79/f77/Pv9/PTv68+4qO/m4v79/f77/Pv9/P7+/fLz6tnCr6h+V3lCHV81Hsu9s/36+vv7+t/cwseeWZZiN3JDJE8rGFcuGunh3f7+/v///+qosgBNK6vGu/////////jy4ODgzdTJsI1dNkkmFnJDJFspCKOJe+qosrwADwBNK6vGu/Hz8Pj16sfCntW/lXlPLWA6HrCcj4FkVo14bfr7+f7//+qosrwADwBNK63Hvf/+/cPFo+rOzcK/qNmyZaRzTEEhF2NKQbSspr67u8HAnvn//eyqtbwADwBNK6vFuv///9vWt8LRzWSTlayrqam+v6KOZnBbPJmCft/bzc/NsP///+mnsbwADwBNK6rFudHVwtvTr87i31ueq1iIg1yJdXShkqzCytbNr87Puv///+insLwADwBNK6zGu////8rKqrrBpqLZ49OVWqeHXqnR28fHpcPGp////+qosrwAD6vGu/v8+/n7+t7Yuba1iqemk7qkk6KrguLeyPf49f37++qosqvGu/v8/PT28ubi3+fc2/T17v77++qosvz9/P////7+/v7+/v////77/Pv9/P///////////v7+/v7+/v7//v////////77/AtXNwtXNw5ZOsriCW4AAAA0dFJOU/j4+Pj4+Pj4+Pj4+Pj///////////////////////////////////39/f39/f39/f39/f3pK6gBAAAAAWJLR0QF+G/pxwAAAAlwSFlzAAAXEgAAFxIBZ5/SUgAAAAd0SU1FB+EDCAsUNeeQzC8AAAFqSURBVDjLY2CAA0YmZhZWNlYoYGfl4OTi5oEDBhM4MDUzt7C0soQCa0sbWzt7Bzhg4IUDPn4BQSFhISgQERIVE5eQhAPiTSRfoaOTs4urm7sHAYWeXt4+QPN8Lf0IKPQHqgoIDLIMDiGgMDQsPCIyKjrGMpaAwjjL+ITEpOSU1LT0DNwKM7Oyc3Lz8gsKi4pLLC1Ly3AqLK+wrKyqrqmtq29obGpuacWpsK29o7Oru6e3r3/CxEmTp0zFqXDa9BkzZ82eM3fe/AULFy1eshSnwmXLLVesXLV6zdp16zds3LR5C06FW7dtt9yxc9fuPXv37bc8cPAQ7uA5bHnk6LHjJ06eOn3mrOU5POF43vKCpeXFS5evWFpetbyGN8Cv37gJSju3bt8hEDN3791/8PDR4ydPn1EvPeJSKAUH0jKycvIK8lCgKK+krKKqBgcMz+HgxctMfCaqw4GGppa2jq4OFOjp6BsYGhnDAQCjJBBpUc5uggAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxNy0wMy0wOFQxMToyMDo1My0wNTowME+f/o0AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTctMDMtMDhUMTE6MjA6NTMtMDU6MDA+wkYxAAAAAElFTkSuQmCC"><strong class="country">Mexico</strong></td>
+                        </tr>
+                        <tr ng-if="Mexico2.length">
+                            <td>
+                                <table class="table-bordered max" id="Mexico_comments_ios">
+                                    <tr>
+                                        <th class="commentWidth1">Rating</th>
+                                        <th class="commentWidth2">Comments</th>
+                                        <th class="commentWidth3">Date</th>
+                                    </tr>
+                                    <tr ng-repeat="info in Mexico2 | orderBy: 'rating'">
+                                        <td>
+                                            {{info.rating}}
+                                        </td>
+                                        <td>
+                                            <span ng-if="info.subject"><strong>Subject:</strong> {{info.subject}}</span>
+                                            <br ng-if="info.subject">
+                                            <br ng-if="info.subject">
+                                            <strong>Comment:</strong> {{info.body}}
+                                            <br>
+                                            <br>
+                                            <span ng-if="info.translated_subject"><strong>Translated Subject:</strong> {{info.translated_subject}}</span>
+                                            <br ng-if="info.subject">
+                                            <br ng-if="info.subject">
+                                            <strong ng-if="info.translated_body">Translated:</strong> {{info.translated_body}}
+                                        </td>
+                                        <td class="text-center">
+                                            {{info.published_at}}
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </td>
+        </tr>
+    </table>
+    <!-- AngularJS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.js"></script>
+    <!-- ngAnimate -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.js"></script>
+    <!-- <script src="//ajax.googleapis.com/ajax/libs/angularjs/X.Y.Z/angular-animate.js"></script> -->
+    <!-- moment.js -->
+    <script src="./lib/moment.min.js"></script>
+    <!-- jQuery 2.2.3 -->
+    <script src="./lib/jquery-2.2.3.min.js"></script>
+    <!-- Bootstrap 3.3.6 -->
+    <script src="./lib/bootstrap.min.js"></script>
+    <!-- <script src="./lib/bootstrap-table.min.js"></script> -->
+    <script src="./lib/papaparse.min.js"></script>
+    <!-- Highcharts -->
+    <!-- <script src="https://code.highcharts.com/highcharts.js"></script> -->
+    <!-- <script src="https://code.highcharts.com/modules/data.js"></script> -->
+    <script src="./lib/highcharts.js"></script>
+    <!--Custom Code-->
+    <!-- <script src="wallet_app_summary.js"></script> -->
+    <script src="./Javascript/app.js"></script>
+    <script src="./Javascript/mainCtrl.js"></script>
+    <script src="./Javascript/factory.js"></script>
+    <script src="./Javascript/graphDirective.js"></script>
+</body>
+
+</html>
