@@ -1,4 +1,4 @@
-#loader_wrapper {
+/*#loader_wrapper {*/
     position: absolute;
     left: 50%;
     top: 50px;
@@ -50,8 +50,17 @@
     }
 }
 
-
+/////////////////////////////////////////////////////////////////////////////////////////////////
 /*Angularjs css*/
+* {
+  box-sizing: border-box;
+  border: black solid 1px;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
 
 .max {
     max-width: 1079px;
@@ -163,7 +172,7 @@ th {
 
 .usaBar2A {
     background-color: #00BDFD;
-    width: 215px;
+    width: 210px;
     height: 30px;
     margin-left: -10px;
     margin-right: -10px;
@@ -173,7 +182,7 @@ th {
 
 .chileBar2A {
     background-color: #FFC0CB;
-    width: 185px;
+    width: 180px;
     height: 30px;
     margin-left: -10px;
     margin-right: -10px;
@@ -318,7 +327,7 @@ th {
 
 .usaBar2i {
     background-color: #00BDFD;
-    width: 160px;
+    width: 150px;
     height: 30px;
     margin-left: -10px;
     margin-right: -10px;
@@ -328,7 +337,7 @@ th {
 
 .chileBar2i {
     background-color: #FFC0CB;
-    width: 140px;
+    width: 150px;
     height: 30px;
     margin-left: -10px;
     margin-right: -10px;
@@ -482,56 +491,38 @@ th {
     height: 200px;
 }
 
-
-/*
-.overall_breakdown_bar:hover {
-    cursor: pointer;
+.starColor {
+    color: orange;
 }
 
-.app_table_sorting img {
-    width: 8px;
-    height: 16px;
+.starColorEmpty {
+    color: lightgray;
 }
 
-.percent_table_hover {
-    text-decoration: underline;
-    color: black;
-    text-align: center;
+.breakdownNum {
+    color: blue;
+    margin-left: 7px;
+    position: relative;
+    bottom:21px;
+    left:53px;
 }
-
-.percent_table_hover:hover {
-    cursor: pointer;
+.avgAndCount {
+    margin: -10px auto; 
+    font-size: 12px;
 }
-
-.table_sort_image:hover {
-    cursor: pointer;
+.breakdownGraph {
+    /*margin-top: 10px; */
+    width: 160px;
+    /*padding-bottom: 100px;*/
+    height: 162px;
 }
-
-.comments_star_num {
-    font-size: 2em;
-    width: 100px;
-    text-align: center;
-}
-
-.comments_star_num  img {
-    width: 40px;
-    height: 40px;
-    vertical-align: middle;
-}
-
-.word_list {
+.highchartsCss {
+    /*margin-bottom: -200px;*/
+    position: relative;
+    /*top: 10px;*/
+    /*width: 850px;*/
     display: inline-block;
-    border: 1px solid white;
-    padding: 10px 0 10px 0;
-    margin: 10px;
-    width: 110px;
 }
-
-.word_list_active {
-    border: 1px solid darkblue;
-    border-radius: 5px;
+* {
+  /*border: black solid 1px;*/
 }
-
-.word_list:hover {
-    cursor: pointer;
-}*/

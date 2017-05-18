@@ -13,30 +13,32 @@ app.controller("walletCtrl", function($scope, $rootScope, walletFtry, $timeout) 
 
             var roundA = Math.floor(res.data[0][2]);
             $scope.USAndroidASDpx = roundA
-            console.log("US: Android", roundA);
+                // console.log("US: Android", roundA);
+                // console.log(res.data);
             var mins = Math.floor(roundA / 60);
             var secs = roundA % 60;
             var timeAndroid = (mins < 10 ? "0" : "") + mins + ":" + (secs < 10 ? "0" : "") + secs;
-            console.log("US: Android", timeAndroid.slice(1));
+            // console.log("US: Android", timeAndroid.slice(1));
             $scope.USAndroidASDtime = timeAndroid.slice(1)
                 //////////////////////////////////////////////// 
-            var roundi = Math.floor(res.data[1][2]);
+            var roundi = Math.floor(res.data[2][2]);
             $scope.USiOSASDpx = roundi
             var mins = Math.floor(roundi / 60);
             var secs = roundi % 60;
             var timeiOS = (mins < 10 ? "0" : "") + mins + ":" + (secs < 10 ? "0" : "") + secs;
-            console.log("US: iOS", timeiOS.slice(1));
+            // console.log("US: iOS", timeiOS.slice(1));
             $scope.USiOSASDtime = timeiOS.slice(1)
         })
         $timeout(function() {
             walletFtry.googleAnalytics(query.Chile).then(function(res) {
                 var roundA = Math.floor(res.data[0][2]);
                 $scope.ChileAndroidASDpx = roundA;
-                console.log(roundA);
+                // console.log(roundA);
+                // console.log(res.data);
                 var mins = Math.floor(roundA / 60);
                 var secs = roundA % 60;
                 var timeAndroid = (mins < 10 ? "0" : "") + mins + ":" + (secs < 10 ? "0" : "") + secs;
-                console.log("Chile: Android", timeAndroid.slice(1));
+                // console.log("Chile: Android", timeAndroid.slice(1));
                 $scope.ChileAndroidASDtime = timeAndroid.slice(1);
                 /////////////////////////////////////////////////////////
                 var roundi = Math.floor(res.data[1][2]);
@@ -44,26 +46,28 @@ app.controller("walletCtrl", function($scope, $rootScope, walletFtry, $timeout) 
                 var mins = Math.floor(roundi / 60);
                 var secs = roundi % 60;
                 var timeiOS = (mins < 10 ? "0" : "") + mins + ":" + (secs < 10 ? "0" : "") + secs;
-                console.log("Chile: iOS", timeiOS.slice(1));
+                // console.log("Chile: iOS", timeiOS.slice(1));
                 $scope.ChileiOSASDtime = timeiOS.slice(1);
             })
         }, 2000)
         $timeout(function() {
             walletFtry.googleAnalytics(query.Colombia).then(function(res) {
                 var roundA = Math.floor(res.data[0][2]);
+                // console.log(res.data);
                 $scope.ColombiaAndroidASDpx = roundA;
                 var mins = Math.floor(roundA / 60);
                 var secs = roundA % 60;
                 var timeAndroid = (mins < 10 ? "0" : "") + mins + ":" + (secs < 10 ? "0" : "") + secs;
-                console.log("Colombia: Android", timeAndroid.slice(1));
+                // console.log("Colombia: Android", timeAndroid.slice(1));
                 $scope.ColombiaAndroidASDtime = timeAndroid.slice(1);
                 ///////////////////////////////////////////////////// 
                 var roundi = Math.floor(res.data[1][2]);
+                // console.log(res.data);
                 $scope.ColombiaiOSASDpx = roundi;
                 var mins = Math.floor(roundi / 60);
                 var secs = roundi % 60;
                 var timeiOS = (mins < 10 ? "0" : "") + mins + ":" + (secs < 10 ? "0" : "") + secs;
-                console.log("Colombia: iOS", timeiOS);
+                // console.log("Colombia: iOS", timeiOS);
                 $scope.ColombiaiOSASDtime = timeiOS.slice(1);
             })
         }, 4000)
@@ -72,18 +76,21 @@ app.controller("walletCtrl", function($scope, $rootScope, walletFtry, $timeout) 
                 // console.log(res);
                 var roundA = Math.floor(res.data[0][2]);
                 $scope.SpainAndroidASDpx = roundA;
+                // console.log($scope.SpainAndroidASDpx);
                 var mins = Math.floor(roundA / 60);
                 var secs = roundA % 60;
                 var timeAndroid = (mins < 10 ? "0" : "") + mins + ":" + (secs < 10 ? "0" : "") + secs;
-                console.log("Spain: Android", timeAndroid);
+                // console.log("Spain: Android", timeAndroid);
                 $scope.SpainAndroidASDtime = timeAndroid.slice(1);
                 /////////////////////////////////////////////////////// 
                 var roundi = Math.floor(res.data[2][2]);
-                $scope.SpainiOSASDpx = roundi
+                $scope.SpainiOSASDpx = roundi;
+                // console.log(res.data);
+                // console.log($scope.SpainiOSASDpx);
                 var mins = Math.floor(roundi / 60);
                 var secs = roundi % 60;
                 var timeiOS = (mins < 10 ? "0" : "") + mins + ":" + (secs < 10 ? "0" : "") + secs;
-                console.log("Spain: iOS", timeiOS);
+                // console.log("Spain: iOS", timeiOS);
                 $scope.SpainiOSASDtime = timeiOS.slice(1);
             })
         }, 6000)
@@ -94,15 +101,16 @@ app.controller("walletCtrl", function($scope, $rootScope, walletFtry, $timeout) 
                 var mins = Math.floor(roundA / 60);
                 var secs = roundA % 60;
                 var timeAndroid = (mins < 10 ? "0" : "") + mins + ":" + (secs < 10 ? "0" : "") + secs;
-                console.log("Mexico: Android", timeAndroid);
+                // console.log("Mexico: Android", timeAndroid);
                 $scope.MexicoAndroidASDtime = timeAndroid.slice(1);
                 /////////////////////////////////////////////////////
-                var roundi = Math.floor(res.data[1][2]);
+                var roundi = Math.floor(res.data[2][2]);
+                // console.log(res.data);
                 $scope.MexicoiOSASDpx = roundi;
                 var mins = Math.floor(roundi / 60);
                 var secs = roundi % 60;
                 var timeiOS = (mins < 10 ? "0" : "") + mins + ":" + (secs < 10 ? "0" : "") + secs;
-                console.log("Mexico: iOS", timeiOS);
+                // console.log("Mexico: iOS", timeiOS);
                 $scope.MexicoiOSASDtime = timeiOS.slice(1);
             })
         }, 8000)
@@ -166,7 +174,7 @@ app.controller("walletCtrl", function($scope, $rootScope, walletFtry, $timeout) 
 
         $timeout(function() {
             walletFtry.averageWeeklyQuery(query0).then(function(res) {
-                console.log("HighCharts 6 Week Trend", res);
+                // console.log("HighCharts 6 Week Trend", res);
                 $scope.sixWeekTrend = res;
                 // console.log($scope.sixWeekTrend.US1)
                 $rootScope.$broadcast("updateSeries")
@@ -175,20 +183,138 @@ app.controller("walletCtrl", function($scope, $rootScope, walletFtry, $timeout) 
     }
 
     /////////////////////////////////////////////////////////////////////////////////////////
+    // WHAT I'M CURRENTLY WORKING ON
+    function getRatingsBreakdownFromAppbot() {
+        // US Android
+        var query1 = {
+                OSandCountry: 892941,
+                startDate: moment().subtract(1, 'week').day(0).format('YYYY-MM-DD'),
+                endDate: moment().subtract(1, 'week').day(6).format("YYYY-MM-DD")
+            }
+            // chile android
+        var query2 = {
+                OSandCountry: 1265819,
+                startDate: moment().subtract(1, 'week').day(0).format('YYYY-MM-DD'),
+                endDate: moment().subtract(1, 'week').day(6).format("YYYY-MM-DD"),
+                page: 1
+            }
+            // colombia android
+        var query3 = {
+                OSandCountry: 1234562,
+                startDate: moment().subtract(1, 'week').day(0).format('YYYY-MM-DD'),
+                endDate: moment().subtract(1, 'week').day(6).format("YYYY-MM-DD"),
+                page: 1
+            }
+            // spain android
+        var query4 = {
+                OSandCountry: 1236152,
+                startDate: moment().subtract(1, 'week').day(0).format('YYYY-MM-DD'),
+                endDate: moment().subtract(1, 'week').day(6).format("YYYY-MM-DD"),
+                page: 1
+            }
+            // mexico android
+        var query5 = {
+                OSandCountry: 1198698,
+                startDate: moment().subtract(1, 'week').day(0).format('YYYY-MM-DD'),
+                endDate: moment().subtract(1, 'week').day(6).format("YYYY-MM-DD"),
+                page: 1
+            }
+            // us ios
+        var query6 = {
+                OSandCountry: 785799,
+                startDate: moment().subtract(1, 'week').day(0).format('YYYY-MM-DD'),
+                endDate: moment().subtract(1, 'week').day(6).format("YYYY-MM-DD"),
+                page: 1
+            }
+            // chile ios
+        var query7 = {
+                OSandCountry: 888242,
+                startDate: moment().subtract(1, 'week').day(0).format('YYYY-MM-DD'),
+                endDate: moment().subtract(1, 'week').day(6).format("YYYY-MM-DD"),
+                page: 1
+            }
+            // colombia ios
+        var query8 = {
+                OSandCountry: 1235970,
+                startDate: moment().subtract(1, 'week').day(0).format('YYYY-MM-DD'),
+                endDate: moment().subtract(1, 'week').day(6).format("YYYY-MM-DD"),
+                page: 1
+            }
+            // spain ios
+        var query9 = {
+                OSandCountry: 468232,
+                startDate: moment().subtract(1, 'week').day(0).format('YYYY-MM-DD'),
+                endDate: moment().subtract(1, 'week').day(6).format("YYYY-MM-DD"),
+                page: 1
+            }
+            // mexico ios
+        var query10 = {
+            OSandCountry: 842231,
+            startDate: moment().subtract(1, 'week').day(0).format('YYYY-MM-DD'),
+            endDate: moment().subtract(1, 'week').day(6).format("YYYY-MM-DD"),
+            page: 1
+        }
+
+        walletFtry.queryReviewBreakdown(query1).then(function(res) {
+            $scope.breakdownRating1 = res;
+
+        })
+
+        $timeout(function() {
+            walletFtry.queryReviewBreakdown(query2).then(function(res) {
+                $scope.breakdownRating2 = res;
+            })
+        }, 2000)
+        $timeout(function() {
+            walletFtry.queryReviewBreakdown(query3).then(function(res) {
+                $scope.breakdownRating3 = res;
+            })
+        }, 4000)
+        $timeout(function() {
+            walletFtry.queryReviewBreakdown(query4).then(function(res) {
+                $scope.breakdownRating4 = res;
+            })
+        }, 6000)
+        $timeout(function() {
+            walletFtry.queryReviewBreakdown(query5).then(function(res) {
+                $scope.breakdownRating5 = res;
+            })
+        }, 8000)
+        $timeout(function() {
+            walletFtry.queryReviewBreakdown(query6).then(function(res) {
+                $scope.breakdownRating6 = res;
+            })
+        }, 10000)
+        $timeout(function() {
+            walletFtry.queryReviewBreakdown(query7).then(function(res) {
+                $scope.breakdownRating7 = res;
+            })
+        }, 12000)
+        $timeout(function() {
+            walletFtry.queryReviewBreakdown(query8).then(function(res) {
+                $scope.breakdownRating8 = res;
+            })
+        }, 14000)
+        $timeout(function() {
+            walletFtry.queryReviewBreakdown(query9).then(function(res) {
+                $scope.breakdownRating9 = res;
+            })
+        }, 16000)
+        $timeout(function() {
+            walletFtry.queryReviewBreakdown(query10).then(function(res) {
+                $scope.breakdownRating10 = res;
+            })
+        }, 18000)
+    }
+
+    /////////////////////////////////////////////////////////////////////////////////////////
 
     // gets the counts for the word frequency table
     function getWordFrequencyFromAppbot() {
-        // var query = {
-        //         startDate: moment().subtract(1, 'week').day(0).format('YYYY-MM-DD'),
-        //         endDate: moment().subtract(1, 'week').day(6).format("YYYY-MM-DD")
-        //     }
-        // console.log(query.endDate);
-        // console.log(query.startDate);
-
         walletFtry.queryWalletWordFrequency().
         then(function(res) {
             $scope.wordFrequency = res;
-            console.log("wordFrequency", res);
+            // console.log("wordFrequency", res);
         })
     }
 
@@ -196,168 +322,255 @@ app.controller("walletCtrl", function($scope, $rootScope, walletFtry, $timeout) 
 
     // gets all the comments, Android & iOS 
     function getCommentsFromAppbot() {
+        // us android
         var query1 = {
-            OPandCountry: 892941,
-            startDate: moment().subtract(1, 'week').day(0).format('YYYY-MM-DD'),
-            endDate: moment().subtract(1, 'week').day(6).format("YYYY-MM-DD"),
-            page: 1
-        }
+                OSandCountry: 892941,
+                startDate: moment().subtract(1, 'week').day(0).format('YYYY-MM-DD'),
+                endDate: moment().subtract(1, 'week').day(6).format("YYYY-MM-DD"),
+                page: 1
+            }
+            // chile android
         var query2 = {
-            OPandCountry: 1265819,
-            startDate: moment().subtract(1, 'week').day(0).format('YYYY-MM-DD'),
-            endDate: moment().subtract(1, 'week').day(6).format("YYYY-MM-DD"),
-            page: 1
-        }
+                OSandCountry: 1265819,
+                startDate: moment().subtract(1, 'week').day(0).format('YYYY-MM-DD'),
+                endDate: moment().subtract(1, 'week').day(6).format("YYYY-MM-DD"),
+                page: 1
+            }
+            // colombia android
         var query3 = {
-            OPandCountry: 814177,
-            startDate: moment().subtract(1, 'week').day(0).format('YYYY-MM-DD'),
-            endDate: moment().subtract(1, 'week').day(6).format("YYYY-MM-DD"),
-            page: 1
-        }
+                OSandCountry: 1234562,
+                startDate: moment().subtract(1, 'week').day(0).format('YYYY-MM-DD'),
+                endDate: moment().subtract(1, 'week').day(6).format("YYYY-MM-DD"),
+                page: 1
+            }
+            // spain android
         var query4 = {
-            OPandCountry: 1236152,
-            startDate: moment().subtract(1, 'week').day(0).format('YYYY-MM-DD'),
-            endDate: moment().subtract(1, 'week').day(6).format("YYYY-MM-DD"),
-            page: 1
-        }
+                OSandCountry: 1236152,
+                startDate: moment().subtract(1, 'week').day(0).format('YYYY-MM-DD'),
+                endDate: moment().subtract(1, 'week').day(6).format("YYYY-MM-DD"),
+                page: 1
+            }
+            // mexico android
         var query5 = {
-            OPandCountry: 1198698,
-            startDate: moment().subtract(1, 'week').day(0).format('YYYY-MM-DD'),
-            endDate: moment().subtract(1, 'week').day(6).format("YYYY-MM-DD"),
-            page: 1
-        }
+                OSandCountry: 1198698,
+                startDate: moment().subtract(1, 'week').day(0).format('YYYY-MM-DD'),
+                endDate: moment().subtract(1, 'week').day(6).format("YYYY-MM-DD"),
+                page: 1
+            }
+            // us ios
         var query6 = {
-            OPandCountry: 785799,
-            startDate: moment().subtract(1, 'week').day(0).format('YYYY-MM-DD'),
-            endDate: moment().subtract(1, 'week').day(6).format("YYYY-MM-DD"),
-            page: 1
-        }
+                OSandCountry: 785799,
+                startDate: moment().subtract(1, 'week').day(0).format('YYYY-MM-DD'),
+                endDate: moment().subtract(1, 'week').day(6).format("YYYY-MM-DD"),
+                page: 1
+            }
+            // chile ios
         var query7 = {
-            OPandCountry: 888242,
-            startDate: moment().subtract(1, 'week').day(0).format('YYYY-MM-DD'),
-            endDate: moment().subtract(1, 'week').day(6).format("YYYY-MM-DD"),
-            page: 1
-        }
+                OSandCountry: 888242,
+                startDate: moment().subtract(1, 'week').day(0).format('YYYY-MM-DD'),
+                endDate: moment().subtract(1, 'week').day(6).format("YYYY-MM-DD"),
+                page: 1
+            }
+            // colombia ios
         var query8 = {
-            OPandCountry: 1235970,
-            startDate: moment().subtract(1, 'week').day(0).format('YYYY-MM-DD'),
-            endDate: moment().subtract(1, 'week').day(6).format("YYYY-MM-DD"),
-            page: 1
-        }
+                OSandCountry: 1235970,
+                startDate: moment().subtract(1, 'week').day(0).format('YYYY-MM-DD'),
+                endDate: moment().subtract(1, 'week').day(6).format("YYYY-MM-DD"),
+                page: 1
+            }
+            // spain ios
         var query9 = {
-            OPandCountry: 468232,
-            startDate: moment().subtract(1, 'week').day(0).format('YYYY-MM-DD'),
-            endDate: moment().subtract(1, 'week').day(6).format("YYYY-MM-DD"),
-            page: 1
-        }
+                OSandCountry: 468232,
+                startDate: moment().subtract(1, 'week').day(0).format('YYYY-MM-DD'),
+                endDate: moment().subtract(1, 'week').day(6).format("YYYY-MM-DD"),
+                page: 1
+            }
+            // mexico ios
         var query10 = {
-            OPandCountry: 842231,
+            OSandCountry: 842231,
             startDate: moment().subtract(1, 'week').day(0).format('YYYY-MM-DD'),
             endDate: moment().subtract(1, 'week').day(6).format("YYYY-MM-DD"),
             page: 1
         }
-        walletFtry.queryForPageCountToHelpGetComments(query1).then(function(res) {
-            query1.page = res.total_pages
-            walletFtry.queryWalletComments(query1).
-            then(function(res) {
-                // console.log(res);
-                $scope.USA1 = res;
-            })
-        })
-        $timeout(function() {
-            walletFtry.queryForPageCountToHelpGetComments(query2).then(function(res) {
-                query2.page = res.total_pages
-                walletFtry.queryWalletComments(query2).
-                then(function(res) {
-                    // console.log(res);
-                    $scope.Chile1 = res;
-                })
-            })
-        }, 2000)
-        $timeout(function() {
-            walletFtry.queryForPageCountToHelpGetComments(query3).then(function(res) {
-                query3.page = res.total_pages
-                walletFtry.queryWalletComments(query3).
-                then(function(res) {
-                    // console.log(res);
-                    $scope.Colombia1 = res;
-                })
-            })
-        }, 4000)
-        $timeout(function() {
-            walletFtry.queryForPageCountToHelpGetComments(query4).then(function(res) {
-                query4.page = res.total_pages
-                walletFtry.queryWalletComments(query4).
-                then(function(res) {
-                    // console.log(res);
-                    $scope.Spain1 = res;
-                })
-            })
-        }, 6000)
-        $timeout(function() {
-            walletFtry.queryForPageCountToHelpGetComments(query5).then(function(res) {
-                query5.page = res.total_pages
-                walletFtry.queryWalletComments(query5).
-                then(function(res) {
-                    // console.log(res);
-                    $scope.Mexico1 = res;
-                    // console.log($scope.Mexico1);
-                })
-            })
-        }, 8000)
-        $timeout(function() {
-            walletFtry.queryForPageCountToHelpGetComments(query6).then(function(res) {
-                query6.page = res.total_pages
-                walletFtry.queryWalletComments(query6).
-                then(function(res) {
-                    // console.log(res);
-                    $scope.USA2 = res;
-                    // console.log($scope.Mexico1);
-                })
-            })
 
-        }, 10000)
-        $timeout(function() {
-            walletFtry.queryForPageCountToHelpGetComments(query7).then(function(res) {
-                query7.page = res.total_pages
-                walletFtry.queryWalletComments(query7).
+        $scope.comments1to3 = 0;
+
+        // us android
+        walletFtry.queryForPageCountToHelpGetComments(query1).then(function(res) {
+                query1.page = res.total_pages
+                walletFtry.queryWalletComments(query1).
                 then(function(res) {
-                    // console.log(res);
-                    $scope.Chile2 = res;
+                    console.log(res);
+                    $timeout(function() {
+                        for (var i = 0; i < res.length; i++) {
+                            if (res[i].rating <= 3) {
+                                $scope.comments1to3++;
+                            }
+                        }
+                    }, 3000)
+                    $scope.USA1 = res;
                 })
             })
-        }, 12000)
+            // chile android
         $timeout(function() {
-            walletFtry.queryForPageCountToHelpGetComments(query8).then(function(res) {
-                query8.page = res.total_pages
-                walletFtry.queryWalletComments(query8).
-                then(function(res) {
-                    // console.log(res);
-                    $scope.Colombia2 = res;
+                walletFtry.queryForPageCountToHelpGetComments(query2).then(function(res) {
+                    query2.page = res.total_pages
+                    walletFtry.queryWalletComments(query2).
+                    then(function(res) {
+                        $timeout(function() {
+                            for (var i = 0; i < res.length; i++) {
+                                if (res[i].rating <= 3) {
+                                    $scope.comments1to3++;
+                                }
+                            }
+                        }, 5000)
+                        $scope.Chile1 = res;
+                    })
                 })
-            })
-        })
+            }, 2000)
+            // colombia android
         $timeout(function() {
-            walletFtry.queryForPageCountToHelpGetComments(query9).then(function(res) {
-                query9.page = res.total_pages
-                walletFtry.queryWalletComments(query9).
-                then(function(res) {
-                    // console.log(res);
-                    $scope.Spain2 = res;
+                walletFtry.queryForPageCountToHelpGetComments(query3).then(function(res) {
+                    query3.page = res.total_pages
+                    walletFtry.queryWalletComments(query3).
+                    then(function(res) {
+                        $timeout(function() {
+                            for (var i = 0; i < res.length; i++) {
+                                if (res[i].rating <= 3) {
+                                    $scope.comments1to3++;
+                                }
+                            }
+                        }, 7000)
+                        $scope.Colombia1 = res;
+                    })
                 })
-            })
-        }, 14000)
+            }, 4000)
+            // spain android
+        $timeout(function() {
+                walletFtry.queryForPageCountToHelpGetComments(query4).then(function(res) {
+                    query4.page = res.total_pages
+                    walletFtry.queryWalletComments(query4).
+                    then(function(res) {
+                        $timeout(function() {
+                            for (var i = 0; i < res.length; i++) {
+                                if (res[i].rating <= 3) {
+                                    $scope.comments1to3++;
+                                }
+                            }
+                        }, 9000)
+                        $scope.Spain1 = res;
+                    })
+                })
+            }, 6000)
+            // mexico android
+        $timeout(function() {
+                walletFtry.queryForPageCountToHelpGetComments(query5).then(function(res) {
+                    query5.page = res.total_pages
+                    walletFtry.queryWalletComments(query5).
+                    then(function(res) {
+                        $timeout(function() {
+                            for (var i = 0; i < res.length; i++) {
+                                if (res[i].rating <= 3) {
+                                    $scope.comments1to3++;
+                                }
+                            }
+                        }, 11000)
+                        $scope.Mexico1 = res;
+                    })
+                })
+            }, 8000)
+            // us ios
+        $timeout(function() {
+                walletFtry.queryForPageCountToHelpGetComments(query6).then(function(res) {
+                    query6.page = res.total_pages
+                    walletFtry.queryWalletComments(query6).
+                    then(function(res) {
+                        // console.log(res);
+                        $timeout(function() {
+                            for (var i = 0; i < res.length; i++) {
+                                if (res[i].rating <= 3) {
+                                    $scope.comments1to3++;
+                                }
+                            }
+                        }, 13000)
+                        $scope.USA2 = res;
+                    })
+                })
+
+            }, 10000)
+            // chile ios
+        $timeout(function() {
+                walletFtry.queryForPageCountToHelpGetComments(query7).then(function(res) {
+                    query7.page = res.total_pages
+                    walletFtry.queryWalletComments(query7).
+                    then(function(res) {
+                        // console.log(res);
+                        $timeout(function() {
+                            for (var i = 0; i < res.length; i++) {
+                                if (res[i].rating <= 3) {
+                                    $scope.comments1to3++;
+                                }
+                            }
+                        }, 15000)
+                        $scope.Chile2 = res;
+                    })
+                })
+            }, 12000)
+            // colombia ios
+        $timeout(function() {
+                walletFtry.queryForPageCountToHelpGetComments(query8).then(function(res) {
+                    query8.page = res.total_pages
+                    walletFtry.queryWalletComments(query8).
+                    then(function(res) {
+                        // console.log(res);
+                        $timeout(function() {
+                            for (var i = 0; i < res.length; i++) {
+                                if (res[i].rating <= 3) {
+                                    $scope.comments1to3++;
+                                }
+                            }
+                        }, 17000)
+
+                        $scope.Colombia2 = res;
+                    })
+                })
+            }, 14000)
+            // spain ios
+        $timeout(function() {
+                walletFtry.queryForPageCountToHelpGetComments(query9).then(function(res) {
+                    query9.page = res.total_pages
+                    walletFtry.queryWalletComments(query9).
+                    then(function(res) {
+                        // console.log(res);
+                        $timeout(function() {
+                            for (var i = 0; i < res.length; i++) {
+                                if (res[i].rating <= 3) {
+                                    $scope.comments1to3++;
+                                }
+                            }
+                        }, 19000)
+                        $scope.Spain2 = res;
+                    })
+                })
+            }, 16000)
+            // mexico ios
         $timeout(function() {
             walletFtry.queryForPageCountToHelpGetComments(query10).then(function(res) {
                 query10.page = res.total_pages
                 walletFtry.queryWalletComments(query10).
                 then(function(res) {
                     // console.log(res);
+                    $timeout(function() {
+                        for (var i = 0; i < res.length; i++) {
+                            if (res[i].rating <= 3) {
+                                $scope.comments1to3++;
+                            }
+                        }
+                    }, 21000)
                     $scope.Mexico2 = res;
-                    // alert("Comments are loaded")
                 })
             })
-        }, 16000)
+        }, 18000)
     }
 
     /////////////////Variable for the maximum width of bar in Average Session Duration///////
@@ -388,7 +601,7 @@ app.controller("walletCtrl", function($scope, $rootScope, walletFtry, $timeout) 
     $scope.AndroidUS = {
         chart: {
             height: 120,
-            width: 900,
+            width: 910,
             events: {
                 load: function() {
                     var series = this.series[0],
@@ -411,6 +624,9 @@ app.controller("walletCtrl", function($scope, $rootScope, walletFtry, $timeout) 
             enabled: false
         },
         credits: {
+            enabled: false
+        },
+        tooltip: {
             enabled: false
         },
         xAxis: {
@@ -436,10 +652,10 @@ app.controller("walletCtrl", function($scope, $rootScope, walletFtry, $timeout) 
             data: [3, 5, 5, 0, 4, 2.3]
         }]
     };
-    $scope.AndriodChile = {
+    $scope.AndroidChile = {
         chart: {
             height: 120,
-            width: 900,
+            width: 910,
             events: {
                 load: function() {
                     var series = this.series[0],
@@ -461,6 +677,10 @@ app.controller("walletCtrl", function($scope, $rootScope, walletFtry, $timeout) 
         legend: {
             enabled: false
         },
+        tooltip: {
+            enabled: false
+        },
+
         credits: {
             enabled: false
         },
@@ -490,7 +710,7 @@ app.controller("walletCtrl", function($scope, $rootScope, walletFtry, $timeout) 
     $scope.AndroidColombia = {
         chart: {
             height: 120,
-            width: 900,
+            width: 910,
             events: {
                 load: function() {
                     var series = this.series[0],
@@ -510,6 +730,9 @@ app.controller("walletCtrl", function($scope, $rootScope, walletFtry, $timeout) 
             text: ''
         },
         legend: {
+            enabled: false
+        },
+        tooltip: {
             enabled: false
         },
         credits: {
@@ -541,7 +764,7 @@ app.controller("walletCtrl", function($scope, $rootScope, walletFtry, $timeout) 
     $scope.AndroidSpain = {
         chart: {
             height: 120,
-            width: 900,
+            width: 910,
             events: {
                 load: function() {
                     var series = this.series[0],
@@ -566,6 +789,10 @@ app.controller("walletCtrl", function($scope, $rootScope, walletFtry, $timeout) 
         credits: {
             enabled: false
         },
+        tooltip: {
+            enabled: false
+        },
+
         xAxis: {
             categories: [week6AgoStart + " to " + week6AgoEnd, week5AgoStart + " to " + week5AgoEnd, week4AgoStart + " to " + week4AgoEnd, week3AgoStart + " to " + week3AgoEnd, week2AgoStart + " to " + week2AgoEnd, week1AgoStart + " to " + week1AgoEnd]
         },
@@ -592,7 +819,7 @@ app.controller("walletCtrl", function($scope, $rootScope, walletFtry, $timeout) 
     $scope.AndroidMexico = {
         chart: {
             height: 120,
-            width: 900,
+            width: 910,
             events: {
                 load: function() {
                     var series = this.series[0],
@@ -614,6 +841,10 @@ app.controller("walletCtrl", function($scope, $rootScope, walletFtry, $timeout) 
         legend: {
             enabled: false
         },
+        tooltip: {
+            enabled: false
+        },
+
         credits: {
             enabled: false
         },
@@ -643,7 +874,7 @@ app.controller("walletCtrl", function($scope, $rootScope, walletFtry, $timeout) 
     $scope.iOSUS = {
         chart: {
             height: 120,
-            width: 900,
+            width: 910,
             events: {
                 load: function() {
                     var series = this.series[0],
@@ -665,6 +896,10 @@ app.controller("walletCtrl", function($scope, $rootScope, walletFtry, $timeout) 
         legend: {
             enabled: false
         },
+        tooltip: {
+            enabled: false
+        },
+
         credits: {
             enabled: false
         },
@@ -694,7 +929,7 @@ app.controller("walletCtrl", function($scope, $rootScope, walletFtry, $timeout) 
     $scope.iOSChile = {
         chart: {
             height: 120,
-            width: 900,
+            width: 910,
             events: {
                 load: function() {
                     var series = this.series[0],
@@ -719,6 +954,10 @@ app.controller("walletCtrl", function($scope, $rootScope, walletFtry, $timeout) 
         credits: {
             enabled: false
         },
+        tooltip: {
+            enabled: false
+        },
+
         xAxis: {
             categories: [week6AgoStart + " to " + week6AgoEnd, week5AgoStart + " to " + week5AgoEnd, week4AgoStart + " to " + week4AgoEnd, week3AgoStart + " to " + week3AgoEnd, week2AgoStart + " to " + week2AgoEnd, week1AgoStart + " to " + week1AgoEnd]
         },
@@ -745,7 +984,7 @@ app.controller("walletCtrl", function($scope, $rootScope, walletFtry, $timeout) 
     $scope.iOSColombia = {
         chart: {
             height: 120,
-            width: 900,
+            width: 910,
             events: {
                 load: function() {
                     var series = this.series[0],
@@ -765,6 +1004,9 @@ app.controller("walletCtrl", function($scope, $rootScope, walletFtry, $timeout) 
             text: ''
         },
         legend: {
+            enabled: false
+        },
+        tooltip: {
             enabled: false
         },
         credits: {
@@ -796,7 +1038,7 @@ app.controller("walletCtrl", function($scope, $rootScope, walletFtry, $timeout) 
     $scope.iOSSpain = {
         chart: {
             height: 120,
-            width: 900,
+            width: 910,
             events: {
                 load: function() {
                     var series = this.series[0],
@@ -816,6 +1058,9 @@ app.controller("walletCtrl", function($scope, $rootScope, walletFtry, $timeout) 
             text: ''
         },
         legend: {
+            enabled: false
+        },
+        tooltip: {
             enabled: false
         },
         credits: {
@@ -847,7 +1092,7 @@ app.controller("walletCtrl", function($scope, $rootScope, walletFtry, $timeout) 
     $scope.iOSMexico = {
         chart: {
             height: 120,
-            width: 900,
+            width: 910,
             events: {
                 load: function() {
                     var series = this.series[0],
@@ -870,6 +1115,9 @@ app.controller("walletCtrl", function($scope, $rootScope, walletFtry, $timeout) 
             enabled: false
         },
         credits: {
+            enabled: false
+        },
+        tooltip: {
             enabled: false
         },
         xAxis: {
@@ -896,36 +1144,41 @@ app.controller("walletCtrl", function($scope, $rootScope, walletFtry, $timeout) 
         }]
     };
 
-    ///////////////////////////////
+    // ///////////////////////////////
     // this takes 10 seconds
     getAverageSessionDurationFromGoogleAnalytics();
     ///////////////////////////////
     // this takes 20 seconds
-    getSixWeekTrendFromAppbot();
-    ///////////////////////////////
-    // this takes 31 seconds
     $timeout(function() {
-        getWordFrequencyFromAppbot();
-    }, 20000)
-    ///////////////////////////////  
-    // this takes 20 seconds
+            getSixWeekTrendFromAppbot();
+        }, 10000)
+        //     ///////////////////////////////
+        //     // this takes 20 seconds
+    $timeout(() => {
+            getRatingsBreakdownFromAppbot()
+        }, 30000)
+            ///////////////////////////////
+            // this takes 31 seconds
     $timeout(function() {
-        getCommentsFromAppbot();
-    }, 41000)
-
-    //////vvvvvTESTvvvvv/////////vvvvvTESTvvvvv///////////////////////////////////////////////////////
+            getWordFrequencyFromAppbot();
+        }, 51000)
+            //     /////////////////////////////  
+            //     // this takes 20 seconds
+    $timeout(function() {
+            getCommentsFromAppbot();
+        }, 85000)
+        // }, 85000)
+        //////vvvvvTESTvvvvv/////////vvvvvTESTvvvvv///////////////////////////////////////////////////////
 
     // function testAPI() {
-    //     walletFtry.testQueries().then(function(res) {
+    //     walletFtry.queryAllTimeRating().then(function(res) {
     //         console.log(res)
     //     })
     // }
     // testAPI();
 
-    // function test() {
-    //     console.log("test for width math", (3.7 / 5) * 250);
-    // }
-    // test();
+
+    // getComments1To3FromAppbott();
     //////^^^^^TEST^^^^//////////^^^^^TEST^^^^///////////////////////////////////////////////////////
 
 })

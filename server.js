@@ -44,7 +44,7 @@ function getAvgSessionDuration(req, res) {
 		arr.push(request[prop])
 	}
 	var newReq = arr.join('');
-	console.log("newReq", newReq);
+	// console.log("newReq", newReq);
 
     var analytics = google.analytics('v3');
     // google auth
@@ -77,7 +77,7 @@ function getAvgSessionDuration(req, res) {
             console.log('queryData error:', err);
             return;
         } else {
-            console.log('analytics resposne', analytics.rows);
+            // console.log('analytics resposne', analytics.rows);
 
             return res.json(analytics.rows);
         }

@@ -1,6 +1,6 @@
 app.factory('walletFtry', function($http, $q, $timeout) {
     return joel = {
-      
+
         wordCount: {
             cant1: {
                 word: "Can't",
@@ -62,21 +62,22 @@ app.factory('walletFtry', function($http, $q, $timeout) {
         counter: 0,
         queryWalletWordFrequency: function() {
             var defer = $q.defer();
-            var OPandCountry = [892941, 1265819, 814177, 1236152, 1198698, 785799, 888242, 1235970, 468232, 842231];
-            if (this.counter < OPandCountry.length) {
-                this.helperQueryFunctionForWordFrequecny(OPandCountry[this.counter])
+            var OSandCountry = [892941, 1265819, 1234562, 1236152, 1198698, 785799, 888242, 1235970, 468232, 842231];
+            if (this.counter < OSandCountry.length) {
+                this.helperQueryFunctionForWordFrequecny(OSandCountry[this.counter])
                 this.counter++;
                 // $timeout(callAtTimeout, 3000);
+                let her = this;
                 $timeout(function() {
-                    joel.queryWalletWordFrequency();
-                }, 3000)
-            } 
+                    her.queryWalletWordFrequency();
+                }, 2000)
+            }
             defer.resolve(this.wordCount);
             return defer.promise;
             // return this.wordCount
         },
         counter2: 0,
-        helperQueryFunctionForWordFrequecny: function(OPandCountry) {
+        helperQueryFunctionForWordFrequecny: function(OSandCountry) {
 
             var range = {
                 startDate: moment().subtract(1, 'week').day(0).format('YYYY-MM-DD'),
@@ -86,11 +87,21 @@ app.factory('walletFtry', function($http, $q, $timeout) {
             if (this.counter2 < wordSearch.length) {
                 // console.log(wordSearch[this.counter2]);
 
-                $http.get("https://api.appbot.co/api/v1/apps/" + OPandCountry + "/reviews?key=28f80e0af8c5c2853f8b614ffb754263a72d69db&start=" + range.startDate + "&end=" + range.endDate + "&page=1&keyword=" + wordSearch[this.counter2]).
+                $http.get("https://api.appbot.co/api/v1/apps/" + OSandCountry + "/reviews?key=28f80e0af8c5c2853f8b614ffb754263a72d69db&start=" + range.startDate + "&end=" + range.endDate + "&page=1&keyword=" + wordSearch[this.counter2]).
                 then(function(res) {
                     var data = res.data
+                    var info = res.data.results
+                    // console.log(data);
                     var urlSlice = res.config.url
-                        // console.log(urlSlice);
+                    if (info.length !== 0) {
+                        for (var i = 0; i < info.length; i++) {
+                            if (info[i].rating > 3) {
+                                data.total_count--
+                            }
+                        }
+                    }
+                    // console.log(info);
+                    // console.log(urlSlice);
                     var wordBeingSearched = [];
                     for (var i = urlSlice.length - 1; i >= 0; i--) {
                         if (urlSlice[i] === "=") {
@@ -98,6 +109,13 @@ app.factory('walletFtry', function($http, $q, $timeout) {
                             break;
                         }
                     }
+
+
+                    // console.log(data.total_count);
+
+
+
+
                     switch (wordBeingSearched[0]) {
                         case "can't":
                             joel.wordCount.cant1.count += data.total_count;
@@ -144,20 +162,20 @@ app.factory('walletFtry', function($http, $q, $timeout) {
                     }
                 })
                 this.counter2++
-                    this.helperQueryFunctionForWordFrequecny(OPandCountry);
+                    this.helperQueryFunctionForWordFrequecny(OSandCountry);
             }
             this.counter2 = 0;
         },
         // queryWalletWordFrequency: function(query) {
 
         //     var defer = $q.defer();
-        //     var OPandCountry = [892941, 1265819, 814177, 1236152, 1198698, 785799, 888242, 1235970, 468232, 842231];
+        //     var OSandCountry = [892941, 1265819, 814177, 1236152, 1198698, 785799, 888242, 1235970, 468232, 842231];
         //     var wordSearch = ["can't", "cant", "won't", "wont", "log in", "login", "crash", "crashes", "deposit", "pay", "update", "error", "version", "transfer"];
         //     var walletApp = []
-        //     for (var j = 0; j < OPandCountry.length; j++) {
+        //     for (var j = 0; j < OSandCountry.length; j++) {
 
         //         for (var i = 0; i < wordSearch.length; i++) {
-        //             $http.get("https://api.appbot.co/api/v1/apps/" + OPandCountry[j] + "/reviews?key=28f80e0af8c5c2853f8b614ffb754263a72d69db&start=" + query.startDate + "&end=" + query.endDate + "&page=1&keyword=" + wordSearch[i]).
+        //             $http.get("https://api.appbot.co/api/v1/apps/" + OSandCountry[j] + "/reviews?key=28f80e0af8c5c2853f8b614ffb754263a72d69db&start=" + query.startDate + "&end=" + query.endDate + "&page=1&keyword=" + wordSearch[i]).
         //             then(function(res) {
         //                 var data = res.data
         //                 var urlSlice = res.config.url
@@ -225,7 +243,7 @@ app.factory('walletFtry', function($http, $q, $timeout) {
             // console.log(query);
             var defer = $q.defer();
 
-            $http.get("https://api.appbot.co/api/v1/apps/" + query.OPandCountry + "/reviews?key=28f80e0af8c5c2853f8b614ffb754263a72d69db&start=" + query.startDate + "&end=" + query.endDate + "&page=1").
+            $http.get("https://api.appbot.co/api/v1/apps/" + query.OSandCountry + "/reviews?key=28f80e0af8c5c2853f8b614ffb754263a72d69db&start=" + query.startDate + "&end=" + query.endDate + "&page=1").
             then(function(res) {
                 var data = res.data
                     // console.log(data);
@@ -237,7 +255,7 @@ app.factory('walletFtry', function($http, $q, $timeout) {
             var defer = $q.defer();
             var arr = [];
             for (var i = 1; i <= query.page; i++) {
-                $http.get("https://api.appbot.co/api/v1/apps/" + query.OPandCountry + "/reviews?key=28f80e0af8c5c2853f8b614ffb754263a72d69db&start=" + query.startDate + "&end=" + query.endDate + "&page=" + i).
+                $http.get("https://api.appbot.co/api/v1/apps/" + query.OSandCountry + "/reviews?key=28f80e0af8c5c2853f8b614ffb754263a72d69db&start=" + query.startDate + "&end=" + query.endDate + "&page=" + i).
                 then(function(res) {
                     var data = res.data.results
                     for (var j = 0; j < data.length; j++) {
@@ -261,13 +279,13 @@ app.factory('walletFtry', function($http, $q, $timeout) {
             Spain2: [],
             Mexico2: []
         },
-
         averageWeeklyQuery: function(query) {
             var defer = $q.defer();
-            var OPandCountry = [892941, 1265819, 1234562, 1236152, 1198698, 785799, 888242, 1235970, 468232, 842231];
-            for (var i = 0; i < OPandCountry.length; i++) {
-                $http.get("https://api.appbot.co/api/v1/apps/" + OPandCountry[i] + "/reviews/by_date?key=28f80e0af8c5c2853f8b614ffb754263a72d69db&start=" + query.startDate + "&end=" + query.endDate + "&pad_empty=n")
+            var OSandCountry = [892941, 1265819, 1234562, 1236152, 1198698, 785799, 888242, 1235970, 468232, 842231];
+            for (var i = 0; i < OSandCountry.length; i++) {
+                $http.get("https://api.appbot.co/api/v1/apps/" + OSandCountry[i] + "/reviews/by_date?key=28f80e0af8c5c2853f8b614ffb754263a72d69db&start=" + query.startDate + "&end=" + query.endDate + "&pad_empty=n")
                     .then(function(res) {
+                        // console.log(res);
                         var urlID = res.config.url;
                         var walletApp = []
                         var weekAverage = res.data.average_rating
@@ -362,23 +380,27 @@ app.factory('walletFtry', function($http, $q, $timeout) {
             })
             return defer.promise;
         },
-        allTimeRatings: function() {
-            var defer = $q.defer();
-    
-        }
-    
-
-        //////vvvvvTESTvvvvv/////////vvvvvTESTvvvvv//////////vvvvvTESTvvvvv////////vvvvvTESTvvvvv////////
-        // testQueries: function() {
-        //     var defer = $q.defer();
-        //     $http.get("/api/wallet/getDurations")
-        //         .then(function(res) {
-        //             console.log(res);
-        //             // var data = res.data
-        //             // console.log(data);
-        //             defer.resolve(res)
-        //         })
-        //     return defer.promise
-        // }
+        queryReviewBreakdown: function(query) {
+                // console.log(query.OSandCountry);
+                let defer = $q.defer();
+                $http.get("https://api.appbot.co/api/v1/apps/" + query.OSandCountry + "/reviews/by_rating?key=28f80e0af8c5c2853f8b614ffb754263a72d69db&start=" + query.startDate + "&end=" + query.endDate).
+                then(function(res) {
+                    let data = res.data.results;
+                    defer.resolve(data);
+                })
+                return defer.promise;
+            }
+            //////vvvvvTESTvvvvv/////////vvvvvTESTvvvvv//////////vvvvvTESTvvvvv////////vvvvvTESTvvvvv////////
+            // testQueries: function() {
+            //     var defer = $q.defer();
+            //     $http.get("/api/wallet/getDurations")
+            //         .then(function(res) {
+            //             console.log(res);
+            //             // var data = res.data
+            //             // console.log(data);
+            //             defer.resolve(res)
+            //         })
+            //     return defer.promise
+            // }
     }
 })
