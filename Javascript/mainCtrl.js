@@ -83,7 +83,7 @@ app.controller("walletCtrl", function($scope, $rootScope, walletFtry, $timeout) 
                 // console.log("Spain: Android", timeAndroid);
                 $scope.SpainAndroidASDtime = timeAndroid.slice(1);
                 /////////////////////////////////////////////////////// 
-                var roundi = Math.floor(res.data[2][2]);
+                var roundi = Math.floor(res.data[3][2]);
                 $scope.SpainiOSASDpx = roundi;
                 // console.log(res.data);
                 // console.log($scope.SpainiOSASDpx);
